@@ -1,0 +1,398 @@
+{
+  "catalogue": {
+    "name": "Lion's Blade",
+    "id": "d16b-522f-e8b9-6d9b",
+    "battleScribeVersion": "2.03",
+    "gameSystemId": "sys-9fe4-1dc3-b7c2-73cf",
+    "gameSystemRevision": 55,
+    "library": false,
+    "revision": 1,
+    "type": "catalogue",
+    "catalogueLinks": [
+      {"name": "Legiones Astartes", "id": "106e-192a-321b-0af0", "importRootEntries": true, "targetId": "9b32-f350-6aa9-9c09", "type": "catalogue"},
+      {"name": "Weapons", "id": "f3b4-3163-1ee2-0ad0", "targetId": "a22d-4dd0-c59d-57d3", "type": "catalogue"},
+      {"name": "Traits", "id": "b9fd-d9ce-0bd7-48f3", "targetId": "df17-7a05-0826-6e22", "type": "catalogue"},
+      {"name": "Special Rules", "id": "667f-864b-e910-062e", "targetId": "106b-693b-99f2-00c3", "type": "catalogue"},
+      {"name": "Wargear", "id": "63e9-e92b-8cb7-2da8", "targetId": "fcc7-4319-bb04-2c25", "type": "catalogue"}
+    ],
+    "categoryEntries": [{"name": "Lion's Blade", "id": "dfc9-c210-4820-4ca6", "hidden": false}],
+    "entryLinks": [
+      {
+        "name": "Lord Commander Varian",
+        "id": "74ef-335a-010d-2155",
+        "hidden": false,
+        "import": true,
+        "targetId": "38bd-b4b1-aedf-ebbb",
+        "type": "selectionEntry",
+        "categoryLinks": [
+          {"name": "High Command", "id": "f322-169b-d066-54c2", "hidden": false, "primary": false, "targetId": "d9a6-9b5f-b18a-4d63"},
+          {"name": "Lion's Blade", "id": "0cee-e70e-cd58-40e2", "hidden": false, "primary": false, "targetId": "dfc9-c210-4820-4ca6"}
+        ]
+      }
+    ],
+    "sharedProfiles": [
+      {
+        "name": "Lion's Blade",
+        "id": "2a79-b9da-e834-4a18",
+        "hidden": false,
+        "typeId": "d5a9-9164-1e30-7a35",
+        "typeName": "Traits",
+        "characteristics": [{"name": "Description", "$text": "", "typeId": "d5eb-0b8b-0f26-6233"}]
+      }
+    ],
+    "sharedRules": [
+      {
+        "name": "Transi",
+        "id": "65f4-f43d-9dea-69f5",
+        "description": "If Lord Commander Varian is joined to and leading a unit with the Lion’s Blade Trait, that unit may enter the battlefield using Deep Strike. When the unit would arrive from Deep Strike, Lord Commander Varian must make an Intelligence Check with a -2 modifier.  \nIf the Check is passed, the unit enters the battlefield normally.  \nIf the Check is failed, the unit still enters the battlefield, but immediately suffers D3+1 Damage. This Damage cannot be prevented, ignored, reduced or otherwise modified in any way. The controlling player may allocate this Damage amongst models in the unit.  \nLord Commander Varian must always be the model that makes this Intelligence Check.",
+        "hidden": false
+      },
+      {
+        "name": "Transitus Instantaneus",
+        "id": "dfc5-ec3b-de7a-a912",
+        "description": "If Lord Commander Varian is joined to and leading a unit with the Lion’s Blade Trait, that unit may enter the battlefield using Deep Strike. When the unit would arrive from Deep Strike, Lord Commander Varian must make an Intelligence Check with a -2 modifier.  \nIf the Check is passed, the unit enters the battlefield normally.  \nIf the Check is failed, the unit still enters the battlefield, but immediately suffers D3 Damage. This Damage cannot be prevented, ignored, reduced or otherwise modified in any way. The controlling player may allocate this Damage amongst models in the unit.  \nLord Commander Varian must always be the model that makes this Intelligence Check.",
+        "hidden": false
+      }
+    ],
+    "sharedSelectionEntries": [
+      {
+        "name": "Lord Commander Varian",
+        "id": "38bd-b4b1-aedf-ebbb",
+        "hidden": false,
+        "import": false,
+        "type": "unit",
+        "constraints": [{"id": "69b7-851e-b355-323d", "field": "selections", "includeChildSelections": true, "scope": "roster", "shared": true, "type": "max", "value": 1}],
+        "costs": [
+          {"name": "Point(s)", "typeId": "9893-c379-920b-8982", "value": 250},
+          {"name": "Reaction Point(s)", "typeId": "c9ba-097e-c47f-ecc2", "value": 0},
+          {"name": "Auxiliary Detachment(s)", "typeId": "3e8e-05ee-be52-12d6", "value": 0},
+          {"name": "Apex Detachment(s)", "typeId": "159d-855c-533d-f592", "value": 0},
+          {"name": "Combined Warlord and Lord of War Points", "typeId": "14bd-cad0-cd3d-8b23", "value": 0},
+          {"name": "Mech LB", "typeId": "7275-cbe8-a563-7152", "value": 0},
+          {"name": "Tank Detachments", "typeId": "2cdf-186c-a655-d907", "value": 0},
+          {"name": "ZM Primary Detachment", "typeId": "37ff-b26e-18a9-7f57", "value": 0},
+          {"name": "Asset Point(s)", "typeId": "57e3-1031-7d4d-5ae3", "value": 0}
+        ],
+        "entryLinks": [
+          {
+            "name": "Prime Unit",
+            "id": "d50f-59b6-c0b9-45ef",
+            "hidden": false,
+            "import": true,
+            "sortIndex": 2,
+            "targetId": "3fa2-78b1-637f-7fb2",
+            "type": "selectionEntry",
+            "entryLinks": [{"name": "Prime Benefits", "id": "377f-ce54-5135-49b2", "hidden": false, "import": true, "targetId": "a396-b846-c263-6767", "type": "selectionEntryGroup"}]
+          },
+          {
+            "name": "High Command Detachment Choice",
+            "id": "9bb7-b78a-0d5d-064a",
+            "hidden": false,
+            "import": true,
+            "sortIndex": 3,
+            "targetId": "969e-8b5b-1410-cfc6",
+            "type": "selectionEntryGroup"
+          }
+        ],
+        "infoLinks": [
+          {
+            "name": "Bulky (X)",
+            "id": "ade6-b9e1-b335-b13e",
+            "comment": "2",
+            "hidden": false,
+            "targetId": "50ad-a9a5-1f1d-9a25",
+            "type": "rule",
+            "modifiers": [{"field": "name", "type": "set", "value": "Bulky (2)"}]
+          },
+          {"name": "[Allegiance]", "id": "57dc-7342-a45c-1118", "hidden": false, "targetId": "bb66-f1f6-4d65-5a07", "type": "profile"},
+          {"name": "[Legiones Astartes]", "id": "8e08-523f-d23c-6a5e", "hidden": false, "targetId": "641c-ca0a-7093-4525", "type": "profile"},
+          {"name": "Master of the Legion", "id": "153e-f7cd-d5f2-a79d", "hidden": false, "targetId": "6cd2-96be-b703-6d57", "type": "profile"},
+          {
+            "name": "Doomed Heroics (X)",
+            "id": "8ece-ffaa-6862-c952",
+            "hidden": true,
+            "targetId": "aea9-7451-7b2c-5b40",
+            "type": "rule",
+            "modifiers": [
+              {"arg": "X", "field": "name", "type": "replace", "value": 3},
+              {
+                "field": "hidden",
+                "type": "set",
+                "value": false,
+                "conditions": [
+                  {
+                    "childId": "4ec2-4dab-205b-36a2",
+                    "field": "selections",
+                    "includeChildForces": true,
+                    "includeChildSelections": true,
+                    "scope": "roster",
+                    "shared": true,
+                    "type": "atLeast",
+                    "value": 1
+                  },
+                  {
+                    "childId": "c195-9a6a-a56b-4634",
+                    "field": "forces",
+                    "includeChildForces": true,
+                    "includeChildSelections": true,
+                    "scope": "primary-catalogue",
+                    "shared": true,
+                    "type": "instanceOf",
+                    "value": 1
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Slow and Purposeful",
+            "id": "6cd4-dfea-9c04-0df5",
+            "hidden": false,
+            "targetId": "6a8e-e508-abc9-cb3e",
+            "type": "rule",
+            "modifiers": [
+              {
+                "field": "hidden",
+                "type": "set",
+                "value": true,
+                "conditionGroups": [
+                  {
+                    "type": "or",
+                    "conditions": [{"childId": "a2ba-c8fc-f381-7d22", "field": "selections", "includeChildSelections": true, "scope": "parent", "shared": true, "type": "atLeast", "value": 1}]
+                  }
+                ]
+              }
+            ]
+          },
+          {"name": "Lion's Blade", "id": "47e1-c378-9aad-0254", "hidden": false, "targetId": "2a79-b9da-e834-4a18", "type": "profile"}
+        ],
+        "selectionEntries": [
+          {
+            "name": "Lord Commander Varian",
+            "id": "3f36-756e-9345-0373",
+            "defaultAmount": "1",
+            "hidden": false,
+            "import": true,
+            "sortIndex": 1,
+            "type": "model",
+            "categoryLinks": [
+              {"name": "Infantry Model Type", "id": "b7ff-d08c-aae5-e33f", "hidden": false, "primary": false, "targetId": "594d-fa82-13cb-a345"},
+              {"name": "Command Model Sub-type", "id": "80f3-6be9-f8ff-ab4c", "hidden": false, "primary": false, "targetId": "9871-cb62-5283-2216"},
+              {"name": "Heavy Model Sub-Type", "id": "03de-d4c6-267e-bca6", "hidden": false, "primary": false, "targetId": "1e7d-9066-28d2-97a0"},
+              {"name": "Unique Model Sub-Type", "id": "f69b-7e7b-0dc3-d20b", "hidden": false, "primary": false, "targetId": "b980-187b-2b17-d635"}
+            ],
+            "constraints": [
+              {"id": "2418-7967-9abd-5f49-min", "field": "selections", "includeChildSelections": false, "scope": "parent", "shared": true, "type": "min", "value": 1},
+              {"id": "2418-7967-9abd-5f49-max", "field": "selections", "includeChildSelections": false, "scope": "parent", "shared": true, "type": "max", "value": 1}
+            ],
+            "entryLinks": [
+              {
+                "name": "Terminator Armour",
+                "id": "3c45-720b-2b0f-fd94",
+                "hidden": false,
+                "import": true,
+                "sortIndex": 1,
+                "targetId": "170b-d9c0-e9d6-b314",
+                "type": "selectionEntryGroup"
+              },
+              {
+                "name": "Spes Gladii (Uncharged)",
+                "id": "bb54-17f7-fb89-3458",
+                "hidden": false,
+                "import": true,
+                "targetId": "ef25-fe2f-5d33-636e",
+                "type": "selectionEntry",
+                "constraints": [
+                  {"id": "6ba0-ee22-07e0-4a9f-min", "field": "selections", "includeChildSelections": false, "scope": "parent", "shared": true, "type": "min", "value": 1},
+                  {"id": "6ba0-ee22-07e0-4a9f-max", "field": "selections", "includeChildSelections": false, "scope": "parent", "shared": true, "type": "max", "value": 1}
+                ]
+              },
+              {
+                "name": "Molecular Incinerator",
+                "id": "73b9-a63d-be9a-0917",
+                "hidden": false,
+                "import": true,
+                "targetId": "f538-f9cc-4193-783d",
+                "type": "selectionEntry",
+                "constraints": [
+                  {"id": "03cd-baf1-a8eb-2114-min", "field": "selections", "includeChildSelections": false, "scope": "parent", "shared": true, "type": "min", "value": 1},
+                  {"id": "03cd-baf1-a8eb-2114-max", "field": "selections", "includeChildSelections": false, "scope": "parent", "shared": true, "type": "max", "value": 1}
+                ]
+              },
+              {
+                "name": "Spes Gladii (Charged)",
+                "id": "b023-0e3e-22bc-9f13",
+                "hidden": false,
+                "import": true,
+                "targetId": "b81c-0ca6-f5b5-f80a",
+                "type": "selectionEntry",
+                "constraints": [
+                  {"id": "d4d6-80c9-c369-7961-min", "field": "selections", "includeChildSelections": false, "scope": "parent", "shared": true, "type": "min", "value": 1},
+                  {"id": "d4d6-80c9-c369-7961-max", "field": "selections", "includeChildSelections": false, "scope": "parent", "shared": true, "type": "max", "value": 1}
+                ]
+              }
+            ],
+            "infoLinks": [{"name": "Transitus Instantaneus", "id": "8780-f6ba-aa73-4990", "hidden": false, "targetId": "dfc5-ec3b-de7a-a912", "type": "rule"}],
+            "profiles": [
+              {
+                "name": "Lord Commander Varian",
+                "id": "ebe5-6971-1337-a117",
+                "hidden": false,
+                "typeId": "a76f-8e23-8c3e-166d",
+                "typeName": "Profile",
+                "characteristics": [
+                  {"name": "Type", "$text": "Infantry (Unique, Command, Heavy)", "typeId": "50fc-9241-d4a2-045b"},
+                  {"name": "M", "$text": "6", "typeId": "a106-a779-d272-5e93"},
+                  {"name": "WS", "$text": "7", "typeId": "253c-d694-4695-c89e"},
+                  {"name": "BS", "$text": "5", "typeId": "0cd5-b269-e3bc-028b"},
+                  {"name": "S", "$text": "4", "typeId": "498f-dce1-59fd-d8d7"},
+                  {"name": "T", "$text": "5", "typeId": "3120-8275-e537-ecd2"},
+                  {"name": "W", "$text": "5", "typeId": "f5cc-79a3-d302-cc1d"},
+                  {"name": "I", "$text": "5", "typeId": "af9d-7db8-dc95-71c1"},
+                  {"name": "A", "$text": "5", "typeId": "024e-bdb1-7982-25a0"},
+                  {"name": "LD", "$text": "10", "typeId": "02ad-ebe6-86e7-9fd6"},
+                  {"name": "CL", "$text": "9", "typeId": "9cd1-0e7c-2cd6-5f2f"},
+                  {"name": "WP", "$text": "9", "typeId": "f714-1726-37d3-44df"},
+                  {"name": "IN", "$text": "9", "typeId": "29c5-925d-5b1d-1e77"},
+                  {"name": "SAV", "$text": "2+", "typeId": "03bd-4ecb-351d-143b"},
+                  {"name": "INV", "$text": "4+", "typeId": "a951-a772-7ce0-0b64"}
+                ],
+                "modifiers": [
+                  {
+                    "comment": "TS - Cult Arcana",
+                    "field": "f714-1726-37d3-44df",
+                    "type": "increment",
+                    "value": 1,
+                    "conditions": [{"childId": "2496-21e2-1870-e9b8", "field": "selections", "includeChildSelections": false, "scope": "force", "shared": true, "type": "instanceOf", "value": 1}]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Molecular Incinerator",
+        "id": "f538-f9cc-4193-783d",
+        "hidden": false,
+        "import": false,
+        "type": "upgrade",
+        "infoLinks": [
+          {"name": "Template", "id": "d11b-3feb-c43f-7333", "hidden": false, "targetId": "7df2-9e88-3285-cf6a", "type": "rule"},
+          {
+            "name": "Breaching (X)",
+            "id": "0b7f-dfdf-3291-895e",
+            "hidden": false,
+            "targetId": "b094-0b64-eb57-aed6",
+            "type": "rule",
+            "modifiers": [{"field": "name", "type": "set", "value": "Breaching (6+)"}]
+          },
+          {
+            "name": "Overload (X)",
+            "id": "a00f-2521-50ec-023b",
+            "hidden": false,
+            "targetId": "1d3a-d1e2-871a-63ae",
+            "type": "rule",
+            "modifiers": [{"field": "name", "type": "set", "value": "Overload (1)"}]
+          }
+        ],
+        "profiles": [
+          {
+            "name": "Molecular Incinerator",
+            "id": "135a-0206-429c-9538",
+            "hidden": false,
+            "typeId": "c591-09ed-3e6f-eb2b",
+            "typeName": "Ranged Weapon",
+            "characteristics": [
+              {"name": "R", "$text": "Template", "typeId": "cdb0-8654-6840-1037"},
+              {"name": "FP", "$text": "1", "typeId": "5037-1f27-1790-e355"},
+              {"name": "RS", "$text": "5", "typeId": "b9da-ee13-79f9-fa63"},
+              {"name": "AP", "$text": "3", "typeId": "7a23-0248-2b94-5951"},
+              {"name": "D", "$text": "2", "typeId": "88c3-1ca5-7dc1-f291"},
+              {"name": "Special Rules", "$text": "Breaching (6+), Overload (1), Template", "typeId": "5aad-137a-8ee2-63fd"},
+              {"name": "Traits", "$text": "Assault, Disintegrator", "typeId": "1247-79d2-6cc1-8a03"}
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Spes Gladii (Charged)",
+        "id": "b81c-0ca6-f5b5-f80a",
+        "hidden": false,
+        "import": false,
+        "type": "upgrade",
+        "infoLinks": [
+          {
+            "name": "Duellist's Edge (X)",
+            "id": "8293-f98c-0a90-66fa",
+            "hidden": false,
+            "targetId": "94bc-c69f-99b6-8ba0",
+            "type": "rule",
+            "modifiers": [{"field": "name", "type": "set", "value": "Duellist's Edge (1)"}]
+          },
+          {
+            "name": "Shred (X)",
+            "id": "a8d7-9977-1ed4-c4e5",
+            "hidden": false,
+            "targetId": "d01e-f96b-b5c1-8fb1",
+            "type": "rule",
+            "modifiers": [{"field": "name", "type": "set", "value": "Shred (5+)"}]
+          }
+        ],
+        "profiles": [
+          {
+            "name": "Spes Gladii (Charged)",
+            "id": "eec1-d71a-ba9e-53ec",
+            "hidden": false,
+            "typeId": "3587-6dcd-005c-c263",
+            "typeName": "Melee Weapon",
+            "characteristics": [
+              {"name": "IM", "$text": "-1", "typeId": "6eec-4093-f946-1014"},
+              {"name": "AM", "$text": "A", "typeId": "03d0-6094-84f0-e27e"},
+              {"name": "SM", "$text": "+3", "typeId": "4505-de6f-d4ae-6280"},
+              {"name": "AP", "$text": "2", "typeId": "a014-126b-3b7b-27e8"},
+              {"name": "D", "$text": "2", "typeId": "6a9d-4feb-065a-33e7"},
+              {"name": "Special Rules", "$text": "Shred (5+), Duellist’s Edge (1)", "typeId": "ebe0-7b28-b40c-694e"},
+              {"name": "Traits", "$text": "Power", "typeId": "76e3-c188-bc65-3467"}
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Spes Gladii (Uncharged)",
+        "id": "ef25-fe2f-5d33-636e",
+        "hidden": false,
+        "import": false,
+        "type": "upgrade",
+        "infoLinks": [
+          {
+            "name": "Duellist's Edge (X)",
+            "id": "40ab-d06c-f0b2-96c7",
+            "hidden": false,
+            "targetId": "94bc-c69f-99b6-8ba0",
+            "type": "rule",
+            "modifiers": [{"field": "name", "type": "set", "value": "Duellist's Edge (1)"}]
+          }
+        ],
+        "profiles": [
+          {
+            "name": "Spes Gladii (Uncharged)",
+            "id": "5e80-48db-2f1a-d0ea",
+            "hidden": false,
+            "typeId": "3587-6dcd-005c-c263",
+            "typeName": "Melee Weapon",
+            "characteristics": [
+              {"name": "IM", "$text": "I", "typeId": "6eec-4093-f946-1014"},
+              {"name": "AM", "$text": "+2", "typeId": "03d0-6094-84f0-e27e"},
+              {"name": "SM", "$text": "+1", "typeId": "4505-de6f-d4ae-6280"},
+              {"name": "AP", "$text": "2", "typeId": "a014-126b-3b7b-27e8"},
+              {"name": "D", "$text": "2", "typeId": "6a9d-4feb-065a-33e7"},
+              {"name": "Special Rules", "$text": "Duellist’s Edge (3)", "typeId": "ebe0-7b28-b40c-694e"},
+              {"name": "Traits", "$text": "Power", "typeId": "76e3-c188-bc65-3467"}
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
