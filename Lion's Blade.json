@@ -723,7 +723,7 @@
               {
                 "field": "name",
                 "type": "set",
-                "value": "Shred (5+)"
+                "value": "Shred (4+)"
               }
             ]
           }
@@ -743,12 +743,12 @@
               },
               {
                 "name": "AM",
-                "$text": "A",
+                "$text": "-1",
                 "typeId": "03d0-6094-84f0-e27e"
               },
               {
                 "name": "SM",
-                "$text": "+3",
+                "$text": "+2",
                 "typeId": "4505-de6f-d4ae-6280"
               },
               {
@@ -763,7 +763,7 @@
               },
               {
                 "name": "Special Rules",
-                "$text": "Shred (5+), Duellist’s Edge (1)",
+                "$text": "Shred (4+), Duellist’s Edge (1)",
                 "typeId": "ebe0-7b28-b40c-694e"
               },
               {
@@ -792,7 +792,7 @@
               {
                 "field": "name",
                 "type": "set",
-                "value": "Duellist's Edge (1)"
+                "value": "Duellist's Edge (2)"
               }
             ]
           }
@@ -832,7 +832,7 @@
               },
               {
                 "name": "Special Rules",
-                "$text": "Duellist’s Edge (3)",
+                "$text": "Duellist’s Edge (2)",
                 "typeId": "ebe0-7b28-b40c-694e"
               },
               {
