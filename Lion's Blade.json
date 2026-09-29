@@ -6,7 +6,7 @@
     "gameSystemId": "sys-9fe4-1dc3-b7c2-73cf",
     "gameSystemRevision": 55,
     "library": false,
-    "revision": 2,
+    "revision": 3,
     "type": "catalogue",
     "catalogueLinks": [
       {
@@ -712,20 +712,6 @@
                 "value": "Duellist's Edge (1)"
               }
             ]
-          },
-          {
-            "name": "Shred (X)",
-            "id": "a8d7-9977-1ed4-c4e5",
-            "hidden": false,
-            "targetId": "d01e-f96b-b5c1-8fb1",
-            "type": "rule",
-            "modifiers": [
-              {
-                "field": "name",
-                "type": "set",
-                "value": "Shred (4+)"
-              }
-            ]
           }
         ],
         "profiles": [
@@ -763,7 +749,7 @@
               },
               {
                 "name": "Special Rules",
-                "$text": "Shred (4+), Duellist’s Edge (1)",
+                "$text": "Duellist’s Edge (1)",
                 "typeId": "ebe0-7b28-b40c-694e"
               },
               {
@@ -827,7 +813,7 @@
               },
               {
                 "name": "D",
-                "$text": "2",
+                "$text": "1",
                 "typeId": "6a9d-4feb-065a-33e7"
               },
               {
