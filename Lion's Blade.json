@@ -6,7 +6,7 @@
     "gameSystemId": "sys-9fe4-1dc3-b7c2-73cf",
     "gameSystemRevision": 55,
     "library": false,
-    "revision": 5,
+    "revision": 6,
     "type": "catalogue",
     "catalogueLinks": [
       {
@@ -825,6 +825,167 @@
                 "name": "Traits",
                 "$text": "Power",
                 "typeId": "76e3-c188-bc65-3467"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "sharedSelectionEntryGroups": [
+      {
+        "name": "Rite of War",
+        "id": "lb-rw-0001",
+        "hidden": false,
+        "selectionEntries": [
+          {
+            "name": "Legiones Astartes Lion's Blade",
+            "id": "lb-faction-0001",
+            "hidden": false,
+            "import": true,
+            "type": "upgrade",
+            "selectionEntries": [
+              {
+                "name": "Legion Tactica",
+                "id": "lb-tactica-0001",
+                "hidden": false,
+                "import": true,
+                "sortIndex": 1,
+                "type": "upgrade",
+                "constraints": [
+                  {
+                    "id": "lb-tactica-min-0001",
+                    "field": "selections",
+                    "scope": "parent",
+                    "shared": true,
+                    "type": "min",
+                    "value": 1
+                  },
+                  {
+                    "id": "lb-tactica-max-0001",
+                    "field": "selections",
+                    "scope": "parent",
+                    "shared": true,
+                    "type": "max",
+                    "value": 1
+                  }
+                ],
+                "rules": [
+                  {
+                    "name": "The Unbroken Blade",
+                    "id": "lb-rule-unbroken-0001",
+                    "description": "When a Unit composed entirely of Models with the Lion’s Blade Trait makes a Disordered Charge, that Unit may still make a Set-up Move and Volley Attacks as though the Charge was not Disordered.\n\nThe Charge is still considered Disordered for all other purposes, and Models in that Unit may not gain any benefit from Special Rules that require them to have successfully Charged.",
+                    "hidden": false
+                  }
+                ]
+              },
+              {
+                "name": "Gambit",
+                "id": "lb-gambit-entry-0001",
+                "hidden": false,
+                "import": true,
+                "sortIndex": 2,
+                "type": "upgrade",
+                "constraints": [
+                  {
+                    "id": "lb-gambit-min-0001",
+                    "field": "selections",
+                    "scope": "parent",
+                    "shared": true,
+                    "type": "min",
+                    "value": 1
+                  },
+                  {
+                    "id": "lb-gambit-max-0001",
+                    "field": "selections",
+                    "scope": "parent",
+                    "shared": true,
+                    "type": "max",
+                    "value": 1
+                  }
+                ],
+                "profiles": [
+                  {
+                    "name": "Hope Against All Odds",
+                    "id": "lb-gambit-profile-0001",
+                    "hidden": false,
+                    "typeId": "9b5f-da4e-5739-cbcf",
+                    "typeName": "Gambit",
+                    "characteristics": [
+                      {
+                        "name": "Summary",
+                        "$text": "This Gambit grants a greater Focus bonus when facing an opponent with equal or higher Weapon Skill.",
+                        "typeId": "98f3-41cf-e3be-2ae7"
+                      },
+                      {
+                        "name": "Description",
+                        "$text": "This Gambit can only be selected during the first Face-Off Step of a Challenge involving this Model. When resolving the Focus Step, compare the Base Weapon Skill Characteristic of this Model and the opposing Model. If the opposing Model has a higher Base Weapon Skill Characteristic, add +2 to this Model’s Focus Roll. If the opposing Model has an equal Base Weapon Skill Characteristic, add +1 instead. If the opposing Model has a lower Base Weapon Skill Characteristic, this Gambit provides no modifier.",
+                        "typeId": "2d7d-b1d9-dead-605a"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Advanced Reaction",
+                "id": "lb-reaction-entry-0001",
+                "hidden": false,
+                "import": true,
+                "sortIndex": 3,
+                "type": "upgrade",
+                "constraints": [
+                  {
+                    "id": "lb-reaction-min-0001",
+                    "field": "selections",
+                    "scope": "parent",
+                    "shared": true,
+                    "type": "min",
+                    "value": 1
+                  },
+                  {
+                    "id": "lb-reaction-max-0001",
+                    "field": "selections",
+                    "scope": "parent",
+                    "shared": true,
+                    "type": "max",
+                    "value": 1
+                  }
+                ],
+                "profiles": [
+                  {
+                    "name": "Transitus Ultima",
+                    "id": "lb-reaction-profile-0001",
+                    "hidden": false,
+                    "typeId": "c14c-ecfd-ea65-58c9",
+                    "typeName": "Reaction",
+                    "characteristics": [
+                      {
+                        "name": "Summary",
+                        "$text": "A Lion’s Blade Unit may attempt an emergency teleport when targeted by a Shooting Attack, but repeated use rapidly destabilises the teleportation matrix.",
+                        "typeId": "5d02-0e54-0f6a-0f0b"
+                      },
+                      {
+                        "name": "Trigger",
+                        "$text": "The Reactive Player may declare the Transitus Ultima Advanced Reaction when the Active Player declares a Shooting Attack that targets a Unit under the Reactive Player’s control which only includes Models with the Lion’s Blade Trait and does not include any Models with the Vehicle Type. This Advanced Reaction may be declared a maximum of three times during the battle. The number of times it has been declared is tracked across the entire Army.",
+                        "typeId": "02e4-3f90-3125-f8b4"
+                      },
+                      {
+                        "name": "Cost",
+                        "$text": "The Reactive Player must spend 1 point of their Reaction Allowance each time Transitus Ultima is declared.",
+                        "typeId": "954a-972f-5c94-2ede"
+                      },
+                      {
+                        "name": "Target",
+                        "$text": "The Target Unit is always the Unit targeted by the Shooting Attack that triggered this Reaction. That Unit is the Reacting Unit.",
+                        "typeId": "e102-8fdd-9cd4-c0f9"
+                      },
+                      {
+                        "name": "Process",
+                        "$text": "1. Immediately make an Intelligence Check for the Reacting Unit. On the first use of Transitus Ultima, this Check is made with a -1 modifier; on the second use, with a -3 modifier; and on the third use, with a -5 modifier. After the third use, Transitus Ultima may not be declared again for the remainder of the battle.\n2. If the Check is passed, every Model in the Reacting Unit may be repositioned up to 6\" from its current position. Models may move through other Models and Terrain while making this move, but must end the move in Unit Coherency, more than 1\" away from all enemy Models, and may not be placed within Impassable Terrain.\n3. After this repositioning has been resolved, the Active Player continues resolving the Shooting Attack normally. If the Reacting Unit is no longer an eligible Target due to Range or Line of Sight, the Shooting Attack ends and the Attacking Unit may not select a new Target.\n4. If the Intelligence Check is failed, the Reacting Unit is not moved and immediately suffers D3 Wounds. No Saving Throws or Damage Mitigation Tests may be made against these Wounds. The Shooting Attack then continues normally.",
+                        "typeId": "57cf-1c68-a020-2529"
+                      }
+                    ]
+                  }
+                ]
               }
             ]
           }
