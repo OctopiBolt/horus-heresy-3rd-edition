@@ -94,7 +94,7 @@
       {
         "name": "Transitus Instantaneus",
         "id": "dfc5-ec3b-de7a-a912",
-        "description": "If Lord Commander Varian is joined to and leading a unit with the Lion’s Blade Trait, that unit may enter the battlefield using Deep Strike. When the unit would arrive from Deep Strike, Lord Commander Varian must make an Intelligence Check with a -2 modifier.  \nIf the Check is passed, the unit enters the battlefield normally.  \nIf the Check is failed, the unit still enters the battlefield, but immediately suffers D3 Damage. This Damage cannot be prevented, ignored, reduced or otherwise modified in any way. The controlling player may allocate this Damage amongst models in the unit.  \nLord Commander Varian must always be the model that makes this Intelligence Check.",
+        "description": "If Lord Commander Varian is joined to and leading a unit with the Lion’s Blade Trait, that unit may enter the battlefield using Deep Strike. When the unit would arrive from Deep Strike, Lord Commander Varian must make an Intelligence Check with a -2 modifier.\n\nIf the Check is passed, the unit enters the battlefield normally.\n\nIf the Check is failed, the unit does not enter the battlefield and remains in Reserves. The unit immediately suffers D3 Mortal Wounds. These Mortal Wounds cannot be prevented, ignored, reduced or otherwise modified in any way. The controlling player may allocate these Mortal Wounds amongst models in the unit.\n\nLord Commander Varian must always be the model that makes this Intelligence Check.",
         "hidden": false
       }
     ],
@@ -484,7 +484,7 @@
                   },
                   {
                     "name": "WS",
-                    "$text": "7",
+                    "$text": "6",
                     "typeId": "253c-d694-4695-c89e"
                   },
                   {
@@ -812,7 +812,7 @@
               },
               {
                 "name": "AM",
-                "$text": "+2",
+                "$text": "+1",
                 "typeId": "03d0-6094-84f0-e27e"
               },
               {
