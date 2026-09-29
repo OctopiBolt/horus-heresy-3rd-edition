@@ -25,8 +25,8 @@
         "targetId": "38bd-b4b1-aedf-ebbb",
         "type": "selectionEntry",
         "categoryLinks": [
-          {"name": "Prime High Command", "id": "7d19-8249-259d-d8a0", "hidden": false, "primary": false, "targetId": "3568-ad75-b452-3137"},
-          {"name": "Lion's Blade", "id": "8017-a052-25b5-e77e", "hidden": false, "primary": false, "targetId": "dfc9-c210-4820-4ca6"}
+          {"name": "Lion's Blade", "id": "8017-a052-25b5-e77e", "hidden": false, "primary": false, "targetId": "dfc9-c210-4820-4ca6"},
+          {"name": "High Command", "id": "2fc2-36d2-48d1-0a23", "hidden": false, "primary": false, "targetId": "d9a6-9b5f-b18a-4d63"}
         ]
       }
     ],
@@ -79,6 +79,7 @@
             "id": "d50f-59b6-c0b9-45ef",
             "hidden": false,
             "import": true,
+            "sortIndex": 2,
             "targetId": "3fa2-78b1-637f-7fb2",
             "type": "selectionEntry",
             "entryLinks": [{"name": "Prime Benefits", "id": "377f-ce54-5135-49b2", "hidden": false, "import": true, "targetId": "a396-b846-c263-6767", "type": "selectionEntryGroup"}]
@@ -88,13 +89,12 @@
             "id": "9bb7-b78a-0d5d-064a",
             "hidden": false,
             "import": true,
-            "sortIndex": 4,
+            "sortIndex": 3,
             "targetId": "969e-8b5b-1410-cfc6",
             "type": "selectionEntryGroup"
           }
         ],
         "infoLinks": [
-          {"name": "Implacable Advance", "id": "b55a-f3d8-5f91-1788", "hidden": false, "targetId": "3898-aafb-35e0-141b", "type": "rule"},
           {
             "name": "Bulky (X)",
             "id": "ade6-b9e1-b335-b13e",
@@ -346,7 +346,7 @@
               {"name": "AM", "$text": "A", "typeId": "03d0-6094-84f0-e27e"},
               {"name": "SM", "$text": "+3", "typeId": "4505-de6f-d4ae-6280"},
               {"name": "AP", "$text": "2", "typeId": "a014-126b-3b7b-27e8"},
-              {"name": "D", "$text": "3", "typeId": "6a9d-4feb-065a-33e7"},
+              {"name": "D", "$text": "2", "typeId": "6a9d-4feb-065a-33e7"},
               {"name": "Special Rules", "$text": "Shred (5+), Duellist’s Edge (1)", "typeId": "ebe0-7b28-b40c-694e"},
               {"name": "Traits", "$text": "Power", "typeId": "76e3-c188-bc65-3467"}
             ]
