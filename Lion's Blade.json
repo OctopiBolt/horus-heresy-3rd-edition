@@ -6,7 +6,7 @@
     "gameSystemId": "sys-9fe4-1dc3-b7c2-73cf",
     "gameSystemRevision": 55,
     "library": false,
-    "revision": 13,
+    "revision": 14,
     "type": "catalogue",
     "catalogueLinks": [
       {
@@ -1227,12 +1227,6 @@
                 "targetId": "5a95-e564-96b2-8dc9"
               },
               {
-                "name": "Sergeant Model Sub-Type",
-                "id": "lb-cat-sgt-0001",
-                "primary": false,
-                "targetId": "8045-89a4-76d4-fcef"
-              },
-              {
                 "name": "Infantry Model Type",
                 "id": "lb-cat-inf-sgt-0001",
                 "primary": false,
@@ -1322,6 +1316,32 @@
                     "value": 1
                   }
                 ]
+              },
+              {
+                "name": "Boarding shield",
+                "id": "lb-praesides-primus-boarding-shield-0001",
+                "hidden": false,
+                "import": true,
+                "targetId": "01e9-334c-80cb-f1c6",
+                "type": "selectionEntry",
+                "constraints": [
+                  {
+                    "id": "lb-praesides-primus-boarding-shield-min",
+                    "field": "selections",
+                    "scope": "parent",
+                    "shared": true,
+                    "type": "min",
+                    "value": 1
+                  },
+                  {
+                    "id": "lb-praesides-primus-boarding-shield-max",
+                    "field": "selections",
+                    "scope": "parent",
+                    "shared": true,
+                    "type": "max",
+                    "value": 1
+                  }
+                ]
               }
             ],
             "profiles": [
@@ -1334,7 +1354,7 @@
                 "characteristics": [
                   {
                     "name": "Type",
-                    "$text": "Infantry (Champion, Sergeant, Heavy)",
+                    "$text": "Infantry (Champion, Heavy)",
                     "typeId": "50fc-9241-d4a2-045b"
                   },
                   {
@@ -1726,6 +1746,32 @@
                   },
                   {
                     "id": "lb-praesides-krak-c-max",
+                    "field": "selections",
+                    "scope": "parent",
+                    "shared": true,
+                    "type": "max",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "name": "Boarding shield",
+                "id": "lb-praesides-boarding-shield-0001",
+                "hidden": false,
+                "import": true,
+                "targetId": "01e9-334c-80cb-f1c6",
+                "type": "selectionEntry",
+                "constraints": [
+                  {
+                    "id": "lb-praesides-boarding-shield-min",
+                    "field": "selections",
+                    "scope": "parent",
+                    "shared": true,
+                    "type": "min",
+                    "value": 1
+                  },
+                  {
+                    "id": "lb-praesides-boarding-shield-max",
                     "field": "selections",
                     "scope": "parent",
                     "shared": true,
