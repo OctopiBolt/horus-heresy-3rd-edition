@@ -58,37 +58,38 @@ jobs:
 
           changed = []
 
-          def patch_node(x, force_name):
+          def patch_generic_faction_enumerations(x, context=""):
               if isinstance(x, list):
                   for v in x:
-                      patch_node(v, force_name)
+                      patch_generic_faction_enumerations(v, context)
                   return
               if not isinstance(x, dict):
                   return
 
-              if x.get("type") == "or" and isinstance(x.get("conditionGroups"), list):
-                  groups = x["conditionGroups"]
-                  has_um = any(has_id(g, UM) for g in groups)
-                  has_da = any(has_id(g, DA) for g in groups)
-                  has_lb = any(has_id(g, LB) for g in groups)
+              # Many game-system rules enumerate all supported factions inside a large OR group.
+              # Mirror the Ultramarines branch as the default Legiones Astartes baseline for Lion's Blade.
+              if x.get("type") == "or":
+                  for key in ("conditionGroups", "conditions"):
+                      items = x.get(key)
+                      if not isinstance(items, list):
+                          continue
 
-                  # Standard/shared faction enumerations only.
-                  if len(groups) >= 10 and has_um and has_da and not has_lb:
-                      um_group = next(g for g in groups if has_id(g, UM))
-                      groups.append(clone_replace(um_group, UM, LB))
-                      changed.append(force_name)
+                      has_um = any(has_id(v, UM) for v in items)
+                      has_da = any(has_id(v, DA) for v in items)
+                      has_lb = any(has_id(v, LB) for v in items)
 
-              for v in x.values():
-                  patch_node(v, force_name)
+                      if len(items) >= 10 and has_um and has_da and not has_lb:
+                          um_item = next(v for v in items if has_id(v, UM))
+                          items.append(clone_replace(um_item, UM, LB))
+                          changed.append(context or "generic faction rule")
 
-          def walk(forces):
-              for f in forces or []:
-                  for m in f.get("modifiers", []):
-                      if m.get("field") == "hidden" and m.get("type") == "set" and m.get("value") is False:
-                          patch_node(m, f.get("name", ""))
-                  walk(f.get("forceEntries", []))
+              for k, v in x.items():
+                  next_context = context
+                  if isinstance(x.get("name"), str):
+                      next_context = x["name"]
+                  patch_generic_faction_enumerations(v, next_context)
 
-          walk(gs.get("forceEntries", []))
+          patch_generic_faction_enumerations(gs, "Horus Heresy 3rd Edition")
 
           if not changed:
               print("No changes required.")
