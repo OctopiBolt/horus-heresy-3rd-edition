@@ -6,7 +6,7 @@
     "gameSystemId": "sys-9fe4-1dc3-b7c2-73cf",
     "gameSystemRevision": 55,
     "library": false,
-    "revision": 15,
+    "revision": 16,
     "type": "catalogue",
     "catalogueLinks": [
       {
@@ -1160,7 +1160,7 @@
           {
             "name": "Point(s)",
             "typeId": "9893-c379-920b-8982",
-            "value": 40
+            "value": 100
           }
         ],
         "entryLinks": [
@@ -1610,7 +1610,7 @@
               {
                 "name": "Point(s)",
                 "typeId": "9893-c379-920b-8982",
-                "value": 35
+                "value": 25
               }
             ],
             "entryLinks": [
