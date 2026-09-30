@@ -6,7 +6,7 @@
     "gameSystemId": "sys-9fe4-1dc3-b7c2-73cf",
     "gameSystemRevision": 55,
     "library": false,
-    "revision": 19,
+    "revision": 20,
     "type": "catalogue",
     "catalogueLinks": [
       {
@@ -2758,16 +2758,16 @@
                 ]
               },
               {
-                "name": "Vigil-pattern Bolt pistol",
-                "id": "lb-locutarii-vigil-fixed-0001",
+                "name": "Bolt pistol",
+                "id": "lb-locutarii-bolt-pistol-fixed-0001",
                 "hidden": false,
                 "import": true,
                 "sortIndex": 2,
-                "targetId": "lb-vigil-pistol-0001",
+                "targetId": "2942-f783-d627-33c5",
                 "type": "selectionEntry",
                 "constraints": [
                   {
-                    "id": "lb-locutarii-vigil-min-0001",
+                    "id": "lb-locutarii-bolt-pistol-min-0001",
                     "field": "selections",
                     "scope": "parent",
                     "shared": true,
@@ -2775,12 +2775,46 @@
                     "value": 1
                   },
                   {
-                    "id": "lb-locutarii-vigil-max-0001",
+                    "id": "lb-locutarii-bolt-pistol-max-0001",
                     "field": "selections",
                     "scope": "parent",
                     "shared": true,
                     "type": "max",
                     "value": 1
+                  }
+                ],
+                "modifiers": [
+                  {
+                    "field": "lb-locutarii-bolt-pistol-min-0001",
+                    "type": "set",
+                    "value": 0,
+                    "conditions": [
+                      {
+                        "childId": "lb-vigil-pistol-0001",
+                        "field": "selections",
+                        "includeChildSelections": true,
+                        "scope": "parent",
+                        "shared": true,
+                        "type": "atLeast",
+                        "value": 1
+                      }
+                    ]
+                  },
+                  {
+                    "field": "lb-locutarii-bolt-pistol-max-0001",
+                    "type": "set",
+                    "value": 0,
+                    "conditions": [
+                      {
+                        "childId": "lb-vigil-pistol-0001",
+                        "field": "selections",
+                        "includeChildSelections": true,
+                        "scope": "parent",
+                        "shared": true,
+                        "type": "atLeast",
+                        "value": 1
+                      }
+                    ]
                   }
                 ]
               }
@@ -2929,7 +2963,50 @@
                 ]
               }
             ],
-            "selectionEntryGroups": []
+            "selectionEntryGroups": [
+              {
+                "name": "May exchange its bolt pistol for:",
+                "id": "lb-locutarii-vigil-upgrade-group-0001",
+                "hidden": false,
+                "constraints": [
+                  {
+                    "id": "lb-locutarii-vigil-upgrade-parentmax-0001",
+                    "field": "selections",
+                    "scope": "parent",
+                    "shared": true,
+                    "type": "max",
+                    "value": 1
+                  }
+                ],
+                "entryLinks": [
+                  {
+                    "name": "Vigil-pattern Bolt pistol",
+                    "id": "lb-locutarii-vigil-upgrade-0001",
+                    "hidden": false,
+                    "import": true,
+                    "targetId": "lb-vigil-pistol-0001",
+                    "type": "selectionEntry",
+                    "costs": [
+                      {
+                        "name": "Point(s)",
+                        "typeId": "9893-c379-920b-8982",
+                        "value": 5
+                      }
+                    ],
+                    "constraints": [
+                      {
+                        "id": "lb-locutarii-vigil-upgrade-max-0001",
+                        "field": "selections",
+                        "scope": "parent",
+                        "shared": true,
+                        "type": "max",
+                        "value": 1
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
           },
           {
             "name": "Locutarii Spei Strike Leader",
@@ -3329,11 +3406,11 @@
               {
                 "name": "Pistol",
                 "id": "lb-locutarii-leader-pistol-group-0001",
-                "defaultSelectionEntryId": "lb-locutarii-leader-vigil-0001",
+                "defaultSelectionEntryId": "lb-locutarii-leader-bolt-pistol-0001",
                 "sortIndex": 2,
                 "constraints": [
                   {
-                    "id": "lb-loc-copy-0034",
+                    "id": "lb-locutarii-leader-pistol-min-0001",
                     "field": "selections",
                     "scope": "parent",
                     "shared": true,
@@ -3341,7 +3418,7 @@
                     "value": 1
                   },
                   {
-                    "id": "lb-loc-copy-0035",
+                    "id": "lb-locutarii-leader-pistol-max-0001",
                     "field": "selections",
                     "scope": "parent",
                     "shared": true,
@@ -3351,12 +3428,38 @@
                 ],
                 "entryLinks": [
                   {
+                    "name": "Bolt pistol",
+                    "id": "lb-locutarii-leader-bolt-pistol-0001",
+                    "defaultAmount": 1,
+                    "hidden": false,
+                    "import": true,
+                    "targetId": "2942-f783-d627-33c5",
+                    "type": "selectionEntry",
+                    "constraints": [
+                      {
+                        "id": "lb-locutarii-leader-bolt-pistol-max-0001",
+                        "field": "selections",
+                        "scope": "parent",
+                        "shared": true,
+                        "type": "max",
+                        "value": 1
+                      }
+                    ]
+                  },
+                  {
                     "name": "Vigil-pattern Bolt pistol",
                     "id": "lb-locutarii-leader-vigil-0001",
                     "hidden": false,
                     "import": true,
                     "targetId": "lb-vigil-pistol-0001",
                     "type": "selectionEntry",
+                    "costs": [
+                      {
+                        "name": "Point(s)",
+                        "typeId": "9893-c379-920b-8982",
+                        "value": 5
+                      }
+                    ],
                     "constraints": [
                       {
                         "id": "lb-locutarii-leader-vigil-max-0001",
