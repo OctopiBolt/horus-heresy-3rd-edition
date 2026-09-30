@@ -6,7 +6,7 @@
     "gameSystemId": "sys-9fe4-1dc3-b7c2-73cf",
     "gameSystemRevision": 55,
     "library": false,
-    "revision": 12,
+    "revision": 13,
     "type": "catalogue",
     "catalogueLinks": [
       {
@@ -1986,6 +1986,403 @@
                     ]
                   }
                 ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Vigil-pattern Bolter",
+        "id": "lb-vigil-bolter-global-0001",
+        "hidden": false,
+        "import": true,
+        "type": "upgrade",
+        "profiles": [
+          {
+            "name": "Vigil-pattern Bolter (Penetrator)",
+            "id": "lb-vigil-bolter-pen-prof",
+            "hidden": false,
+            "typeId": "c591-09ed-3e6f-eb2b",
+            "typeName": "Ranged Weapon",
+            "characteristics": [
+              {
+                "name": "R",
+                "$text": "10",
+                "typeId": "cdb0-8654-6840-1037"
+              },
+              {
+                "name": "FP",
+                "$text": "2",
+                "typeId": "5037-1f27-1790-e355"
+              },
+              {
+                "name": "RS",
+                "$text": "5",
+                "typeId": "b9da-ee13-79f9-fa63"
+              },
+              {
+                "name": "AP",
+                "$text": "4",
+                "typeId": "7a23-0248-2b94-5951"
+              },
+              {
+                "name": "D",
+                "$text": "1",
+                "typeId": "88c3-1ca5-7dc1-f291"
+              },
+              {
+                "name": "Special Rules",
+                "$text": "Shred (6+)",
+                "typeId": "5aad-137a-8ee2-63fd"
+              },
+              {
+                "name": "Traits",
+                "$text": "Bolt",
+                "typeId": "1247-79d2-6cc1-8a03"
+              }
+            ]
+          },
+          {
+            "name": "Vigil-pattern Bolter",
+            "id": "lb-vigil-bolter-std-prof",
+            "hidden": false,
+            "typeId": "c591-09ed-3e6f-eb2b",
+            "typeName": "Ranged Weapon",
+            "characteristics": [
+              {
+                "name": "R",
+                "$text": "24",
+                "typeId": "cdb0-8654-6840-1037"
+              },
+              {
+                "name": "FP",
+                "$text": "2",
+                "typeId": "5037-1f27-1790-e355"
+              },
+              {
+                "name": "RS",
+                "$text": "4",
+                "typeId": "b9da-ee13-79f9-fa63"
+              },
+              {
+                "name": "AP",
+                "$text": "5",
+                "typeId": "7a23-0248-2b94-5951"
+              },
+              {
+                "name": "D",
+                "$text": "1",
+                "typeId": "88c3-1ca5-7dc1-f291"
+              },
+              {
+                "name": "Special Rules",
+                "$text": "-",
+                "typeId": "5aad-137a-8ee2-63fd"
+              },
+              {
+                "name": "Traits",
+                "$text": "Bolt",
+                "typeId": "1247-79d2-6cc1-8a03"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Vigil-pattern Heavy bolter",
+        "id": "lb-vigil-heavy-bolter-global-0001",
+        "hidden": false,
+        "import": true,
+        "type": "upgrade",
+        "profiles": [
+          {
+            "name": "Vigil-pattern Heavy bolter (Penetrator)",
+            "id": "lb-vigil-heavy-bolter-pen-prof",
+            "hidden": false,
+            "typeId": "c591-09ed-3e6f-eb2b",
+            "typeName": "Ranged Weapon",
+            "characteristics": [
+              {
+                "name": "R",
+                "$text": "14",
+                "typeId": "cdb0-8654-6840-1037"
+              },
+              {
+                "name": "FP",
+                "$text": "3",
+                "typeId": "5037-1f27-1790-e355"
+              },
+              {
+                "name": "RS",
+                "$text": "6",
+                "typeId": "b9da-ee13-79f9-fa63"
+              },
+              {
+                "name": "AP",
+                "$text": "4",
+                "typeId": "7a23-0248-2b94-5951"
+              },
+              {
+                "name": "D",
+                "$text": "1",
+                "typeId": "88c3-1ca5-7dc1-f291"
+              },
+              {
+                "name": "Special Rules",
+                "$text": "Heavy (FP), Shred (6+)",
+                "typeId": "5aad-137a-8ee2-63fd"
+              },
+              {
+                "name": "Traits",
+                "$text": "Bolt",
+                "typeId": "1247-79d2-6cc1-8a03"
+              }
+            ]
+          },
+          {
+            "name": "Vigil-pattern Heavy bolter",
+            "id": "lb-vigil-heavy-bolter-std-prof",
+            "hidden": false,
+            "typeId": "c591-09ed-3e6f-eb2b",
+            "typeName": "Ranged Weapon",
+            "characteristics": [
+              {
+                "name": "R",
+                "$text": "36",
+                "typeId": "cdb0-8654-6840-1037"
+              },
+              {
+                "name": "FP",
+                "$text": "3",
+                "typeId": "5037-1f27-1790-e355"
+              },
+              {
+                "name": "RS",
+                "$text": "5",
+                "typeId": "b9da-ee13-79f9-fa63"
+              },
+              {
+                "name": "AP",
+                "$text": "4",
+                "typeId": "7a23-0248-2b94-5951"
+              },
+              {
+                "name": "D",
+                "$text": "1",
+                "typeId": "88c3-1ca5-7dc1-f291"
+              },
+              {
+                "name": "Special Rules",
+                "$text": "Heavy (FP)",
+                "typeId": "5aad-137a-8ee2-63fd"
+              },
+              {
+                "name": "Traits",
+                "$text": "Bolt",
+                "typeId": "1247-79d2-6cc1-8a03"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Vigil-pattern Combi-bolter",
+        "id": "lb-vigil-combi-bolter-global-0001",
+        "hidden": false,
+        "import": true,
+        "type": "upgrade",
+        "profiles": [
+          {
+            "name": "Vigil-pattern Combi-bolter (Penetrator)",
+            "id": "lb-vigil-combi-bolter-pen-prof",
+            "hidden": false,
+            "typeId": "c591-09ed-3e6f-eb2b",
+            "typeName": "Ranged Weapon",
+            "characteristics": [
+              {
+                "name": "R",
+                "$text": "10",
+                "typeId": "cdb0-8654-6840-1037"
+              },
+              {
+                "name": "FP",
+                "$text": "4",
+                "typeId": "5037-1f27-1790-e355"
+              },
+              {
+                "name": "RS",
+                "$text": "5",
+                "typeId": "b9da-ee13-79f9-fa63"
+              },
+              {
+                "name": "AP",
+                "$text": "4",
+                "typeId": "7a23-0248-2b94-5951"
+              },
+              {
+                "name": "D",
+                "$text": "1",
+                "typeId": "88c3-1ca5-7dc1-f291"
+              },
+              {
+                "name": "Special Rules",
+                "$text": "Shred (6+)",
+                "typeId": "5aad-137a-8ee2-63fd"
+              },
+              {
+                "name": "Traits",
+                "$text": "Bolt",
+                "typeId": "1247-79d2-6cc1-8a03"
+              }
+            ]
+          },
+          {
+            "name": "Vigil-pattern Combi-bolter",
+            "id": "lb-vigil-combi-bolter-std-prof",
+            "hidden": false,
+            "typeId": "c591-09ed-3e6f-eb2b",
+            "typeName": "Ranged Weapon",
+            "characteristics": [
+              {
+                "name": "R",
+                "$text": "24",
+                "typeId": "cdb0-8654-6840-1037"
+              },
+              {
+                "name": "FP",
+                "$text": "4",
+                "typeId": "5037-1f27-1790-e355"
+              },
+              {
+                "name": "RS",
+                "$text": "4",
+                "typeId": "b9da-ee13-79f9-fa63"
+              },
+              {
+                "name": "AP",
+                "$text": "5",
+                "typeId": "7a23-0248-2b94-5951"
+              },
+              {
+                "name": "D",
+                "$text": "1",
+                "typeId": "88c3-1ca5-7dc1-f291"
+              },
+              {
+                "name": "Special Rules",
+                "$text": "-",
+                "typeId": "5aad-137a-8ee2-63fd"
+              },
+              {
+                "name": "Traits",
+                "$text": "Bolt",
+                "typeId": "1247-79d2-6cc1-8a03"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Ensis Spei",
+        "id": "lb-ensis-spei-global-0001",
+        "hidden": false,
+        "import": true,
+        "type": "upgrade",
+        "profiles": [
+          {
+            "name": "Ensis Spei",
+            "id": "lb-ensis-spei-prof-0001",
+            "hidden": false,
+            "typeId": "c24d-2a9a-6e9f-59ff",
+            "typeName": "Melee Weapon",
+            "characteristics": [
+              {
+                "name": "IM",
+                "$text": "-1",
+                "typeId": "6eec-4093-f946-1014"
+              },
+              {
+                "name": "AM",
+                "$text": "A",
+                "typeId": "03d0-6094-84f0-e27e"
+              },
+              {
+                "name": "SM",
+                "$text": "+2",
+                "typeId": "4505-de6f-d4ae-6280"
+              },
+              {
+                "name": "AP",
+                "$text": "3",
+                "typeId": "a014-126b-3b7b-27e8"
+              },
+              {
+                "name": "D",
+                "$text": "1",
+                "typeId": "6a9d-4feb-065a-33e7"
+              },
+              {
+                "name": "Special Rules",
+                "$text": "Breaching (5+), Shred (5+)",
+                "typeId": "ebe0-7b28-b40c-694e"
+              },
+              {
+                "name": "Traits",
+                "$text": "Power",
+                "typeId": "76e3-c188-bc65-3467"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Spes Aeterna",
+        "id": "lb-spes-aeterna-global-0001",
+        "hidden": false,
+        "import": true,
+        "type": "upgrade",
+        "profiles": [
+          {
+            "name": "Spes Aeterna",
+            "id": "lb-spes-aeterna-prof-0001",
+            "hidden": false,
+            "typeId": "c24d-2a9a-6e9f-59ff",
+            "typeName": "Melee Weapon",
+            "characteristics": [
+              {
+                "name": "IM",
+                "$text": "-1",
+                "typeId": "6eec-4093-f946-1014"
+              },
+              {
+                "name": "AM",
+                "$text": "A",
+                "typeId": "03d0-6094-84f0-e27e"
+              },
+              {
+                "name": "SM",
+                "$text": "+1",
+                "typeId": "4505-de6f-d4ae-6280"
+              },
+              {
+                "name": "AP",
+                "$text": "2",
+                "typeId": "a014-126b-3b7b-27e8"
+              },
+              {
+                "name": "D",
+                "$text": "2",
+                "typeId": "6a9d-4feb-065a-33e7"
+              },
+              {
+                "name": "Special Rules",
+                "$text": "Duellist's Edge (1)",
+                "typeId": "ebe0-7b28-b40c-694e"
+              },
+              {
+                "name": "Traits",
+                "$text": "Power",
+                "typeId": "76e3-c188-bc65-3467"
               }
             ]
           }
