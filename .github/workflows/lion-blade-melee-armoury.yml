@@ -1,0 +1,212 @@
+name: Lion Blade melee armoury patch
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: github.event.head_commit.message == 'Run Lion Blade melee armoury patch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Patch catalogues
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          POINTS = "9893-c379-920b-8982"
+          LION_CATALOGUE = "d16b-522f-e8b9-6d9b"
+          SERGEANT = "8045-89a4-76d4-fcef"
+          COMMAND = "9871-cb62-5283-2216"
+          CHAMPION = "5a95-e564-96b2-8dc9"
+          LEG_SPEC = "ef74-faa7-0d36-762b"
+
+          base_path = Path("Legiones Astartes.json")
+          lion_path = Path("Lion's Blade.json")
+
+          base = json.loads(base_path.read_text(encoding="utf-8"))
+          lion = json.loads(lion_path.read_text(encoding="utf-8"))
+
+          def pts(value):
+              return {"name":"Point(s)","typeId":POINTS,"value":value}
+
+          def low_mod():
+              return [{
+                  "field":"hidden","type":"set","value":False,
+                  "conditionGroups":[{
+                      "type":"and",
+                      "conditions":[
+                          {"childId":LION_CATALOGUE,"field":"selections","includeChildSelections":True,"scope":"force","shared":True,"type":"instanceOf","value":1},
+                          {"childId":SERGEANT,"field":"selections","includeChildSelections":True,"scope":"model","shared":True,"type":"instanceOf","value":1},
+                          {"childId":COMMAND,"field":"selections","includeChildSelections":True,"scope":"model","shared":True,"type":"notInstanceOf","value":1},
+                          {"childId":CHAMPION,"field":"selections","includeChildSelections":True,"scope":"model","shared":True,"type":"notInstanceOf","value":1}
+                      ]
+                  }]
+              }]
+
+          def high_mod():
+              return [{
+                  "field":"hidden","type":"set","value":False,
+                  "conditionGroups":[{
+                      "type":"and",
+                      "conditions":[
+                          {"childId":LION_CATALOGUE,"field":"selections","includeChildSelections":True,"scope":"force","shared":True,"type":"instanceOf","value":1}
+                      ],
+                      "conditionGroups":[{
+                          "type":"or",
+                          "conditions":[
+                              {"childId":COMMAND,"field":"selections","includeChildSelections":True,"scope":"model","shared":True,"type":"instanceOf","value":1},
+                              {"childId":CHAMPION,"field":"selections","includeChildSelections":True,"scope":"model","shared":True,"type":"instanceOf","value":1}
+                          ]
+                      }]
+                  }]
+              }]
+
+          def weapon(name, ident, target, cost, modifiers):
+              e = {
+                  "name":name,
+                  "id":ident,
+                  "hidden":True,
+                  "import":True,
+                  "targetId":target,
+                  "type":"selectionEntry",
+                  "constraints":[{
+                      "id":ident+"-max",
+                      "field":"selections",
+                      "scope":"parent",
+                      "shared":True,
+                      "type":"max",
+                      "value":1
+                  }],
+                  "modifiers":modifiers
+              }
+              if cost > 0:
+                  e["costs"] = [pts(cost)]
+              return e
+
+          # Ensure a globally linkable Ensis Transitus exists in Lion's Blade.
+          shared = lion["catalogue"]["sharedSelectionEntries"]
+          if not any(x.get("id") == "lb-ensis-transitus-global-0001" for x in shared):
+              src = next(x for x in shared if x.get("id") == "lb-ensis-transitus-0001")
+              clone = json.loads(json.dumps(src))
+              clone["id"] = "lb-ensis-transitus-global-0001"
+              if clone.get("profiles"):
+                  clone["profiles"][0]["id"] = "lb-ensis-transitus-global-prof-0001"
+              shared.append(clone)
+
+          # Rebuild Lion's Blade entries in Legion Specific Upgrade.
+          leg_group = next(x for x in base["catalogue"]["sharedSelectionEntryGroups"] if x.get("id") == LEG_SPEC)
+          remove_ids = {
+              "lb-ensis-sergeant-upgrade",
+              "lb-spes-command-upgrade",
+              "lb-ensis-transitus-sergeant-upgrade",
+              "lb-ensis-transitus-command-upgrade",
+              "lb-ensis-spei-command-upgrade"
+          }
+          leg_group["entryLinks"] = [e for e in leg_group.get("entryLinks", []) if e.get("id") not in remove_ids]
+          leg_group["entryLinks"].extend([
+              weapon("Ensis Transitus","lb-ensis-transitus-sergeant-upgrade","lb-ensis-transitus-global-0001",5,low_mod()),
+              weapon("Ensis Spei","lb-ensis-sergeant-upgrade","lb-ensis-spei-global-0001",15,low_mod()),
+              weapon("Ensis Transitus","lb-ensis-transitus-command-upgrade","lb-ensis-transitus-global-0001",0,high_mod()),
+              weapon("Ensis Spei","lb-ensis-spei-command-upgrade","lb-ensis-spei-global-0001",10,high_mod()),
+              weapon("Spes Aeterna","lb-spes-command-upgrade","lb-spes-aeterna-global-0001",15,high_mod())
+          ])
+
+          # Ensure all Sergeant / Champion / Command models actually have Legion Specific Upgrade.
+          counter = [0]
+          def patch_models(obj):
+              if isinstance(obj, list):
+                  for v in obj:
+                      patch_models(v)
+                  return
+              if not isinstance(obj, dict):
+                  return
+              if obj.get("type") == "model":
+                  cats = {c.get("targetId") for c in obj.get("categoryLinks", [])}
+                  if SERGEANT in cats or COMMAND in cats or CHAMPION in cats:
+                      links = obj.setdefault("entryLinks", [])
+                      if not any(e.get("targetId") == LEG_SPEC for e in links):
+                          counter[0] += 1
+                          links.append({
+                              "name":"Legion Specific Upgrade",
+                              "id":f"lb-legspec-auto-{counter[0]:04d}-{obj.get('id','model')}",
+                              "hidden":False,
+                              "import":True,
+                              "targetId":LEG_SPEC,
+                              "type":"selectionEntryGroup"
+                          })
+              for v in obj.values():
+                  patch_models(v)
+
+          patch_models(base)
+
+          # Locutarii Champion: Transitus free / Spei +10 / Spes +15.
+          loc = next((x for x in shared if x.get("id") == "lb-locutarii-unit-0001"), None)
+          if loc:
+              leader = next((x for x in loc.get("selectionEntries", []) if x.get("id") == "lb-locutarii-leader-0001"), None)
+              if leader:
+                  group = next((g for g in leader.get("selectionEntryGroups", []) if g.get("id") == "lb-locutarii-leader-melee-group-0001"), None)
+                  if group:
+                      for e in group.get("entryLinks", []):
+                          if e.get("name") == "Ensis Spei":
+                              e["costs"] = [pts(10)]
+                      if not any(e.get("name") == "Spes Aeterna" for e in group.get("entryLinks", [])):
+                          group["entryLinks"].insert(2,{
+                              "name":"Spes Aeterna",
+                              "id":"lb-locutarii-leader-spes-aeterna-0001",
+                              "hidden":False,
+                              "import":True,
+                              "targetId":"lb-spes-aeterna-0001",
+                              "type":"selectionEntry",
+                              "costs":[pts(15)],
+                              "constraints":[{
+                                  "id":"lb-locutarii-leader-spes-aeterna-max-0001",
+                                  "field":"selections","scope":"parent","shared":True,"type":"max","value":1
+                              }]
+                          })
+
+          # Praesides Primus keeps its explicitly assigned standard Ensis Spei,
+          # but also gets free Ensis Transitus as a Champion option.
+          pra = next((x for x in shared if x.get("id") == "lb-praesides-unit-0001"), None)
+          if pra:
+              primus = next((x for x in pra.get("selectionEntries", []) if x.get("id") == "lb-praesides-primus-model-0001"), None)
+              if primus:
+                  group = next((g for g in primus.get("selectionEntryGroups", []) if g.get("id") == "lb-praesides-primus-melee-group-0001"), None)
+                  if group and not any(e.get("name") == "Ensis Transitus" for e in group.get("entryLinks", [])):
+                      group["entryLinks"].insert(1,{
+                          "name":"Ensis Transitus",
+                          "id":"lb-praesides-primus-ensis-transitus-0001",
+                          "hidden":False,
+                          "import":True,
+                          "targetId":"lb-ensis-transitus-0001",
+                          "type":"selectionEntry",
+                          "constraints":[{
+                              "id":"lb-praesides-primus-ensis-transitus-max-0001",
+                              "field":"selections","scope":"parent","shared":True,"type":"max","value":1
+                          }]
+                      })
+
+          base["catalogue"]["revision"] = int(base["catalogue"].get("revision",0)) + 1
+          lion["catalogue"]["revision"] = int(lion["catalogue"].get("revision",0)) + 1
+
+          base_path.write_text(json.dumps(base, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+          lion_path.write_text(json.dumps(lion, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+          PY
+
+      - name: Commit changes
+        shell: bash
+        run: |
+          git config user.name "ChatGPT Patch"
+          git config user.email "actions@users.noreply.github.com"
+          git add "Legiones Astartes.json" "Lion's Blade.json"
+          if ! git diff --cached --quiet; then
+            git commit -m "Apply Lion's Blade melee armoury tiers"
+            git push
+          fi
