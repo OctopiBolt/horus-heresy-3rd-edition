@@ -6,7 +6,7 @@
     "authorName": "The4D6",
     "authorUrl": "https://github.com/BSData/horus-heresy-3rd-edition/",
     "battleScribeVersion": 2.03,
-    "revision": 56,
+    "revision": 57,
     "type": "gameSystem",
     "xmlns": "http://www.battlescribe.net/schema/gameSystemSchema",
     "categoryEntries": [
@@ -4816,6 +4816,72 @@
                                 "value": 0
                               }
                             ]
+                          },
+                          {
+                            "comment": "Lion's Blade",
+                            "type": "and",
+                            "conditionGroups": [
+                              {
+                                "type": "and",
+                                "conditions": [
+                                  {
+                                    "childId": "2c0e-cb21-17b4-8870",
+                                    "field": "selections",
+                                    "includeChildSelections": true,
+                                    "scope": "force",
+                                    "shared": true,
+                                    "type": "atLeast",
+                                    "value": 2
+                                  },
+                                  {
+                                    "childId": "1fb4-7ef8-2442-2e70",
+                                    "field": "selections",
+                                    "includeChildSelections": true,
+                                    "scope": "force",
+                                    "shared": true,
+                                    "type": "atLeast",
+                                    "value": 2
+                                  }
+                                ]
+                              }
+                            ],
+                            "conditions": [
+                              {
+                                "childId": "d16b-522f-e8b9-6d9b",
+                                "field": "selections",
+                                "scope": "primary-catalogue",
+                                "shared": true,
+                                "type": "instanceOf",
+                                "value": 1
+                              },
+                              {
+                                "childId": "d16b-522f-e8b9-6d9b",
+                                "field": "selections",
+                                "scope": "parent",
+                                "shared": true,
+                                "type": "instanceOf",
+                                "value": 1
+                              },
+                              {
+                                "childId": "88e6-d373-4152-0dd8",
+                                "field": "selections",
+                                "includeChildSelections": true,
+                                "scope": "force",
+                                "shared": true,
+                                "type": "atLeast",
+                                "value": 4
+                              },
+                              {
+                                "childId": "7799-e1d6-762b-700b",
+                                "field": "selections",
+                                "includeChildForces": true,
+                                "includeChildSelections": true,
+                                "scope": "roster",
+                                "shared": true,
+                                "type": "atLeast",
+                                "value": 1
+                              }
+                            ]
                           }
                         ]
                       }
@@ -6147,6 +6213,72 @@
                                     "shared": true,
                                     "type": "equalTo",
                                     "value": 0
+                                  }
+                                ]
+                              },
+                              {
+                                "comment": "Lion's Blade",
+                                "type": "and",
+                                "conditionGroups": [
+                                  {
+                                    "type": "and",
+                                    "conditions": [
+                                      {
+                                        "childId": "2c0e-cb21-17b4-8870",
+                                        "field": "selections",
+                                        "includeChildSelections": true,
+                                        "scope": "force",
+                                        "shared": true,
+                                        "type": "atLeast",
+                                        "value": 2
+                                      },
+                                      {
+                                        "childId": "1fb4-7ef8-2442-2e70",
+                                        "field": "selections",
+                                        "includeChildSelections": true,
+                                        "scope": "force",
+                                        "shared": true,
+                                        "type": "atLeast",
+                                        "value": 2
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "conditions": [
+                                  {
+                                    "childId": "d16b-522f-e8b9-6d9b",
+                                    "field": "selections",
+                                    "scope": "primary-catalogue",
+                                    "shared": true,
+                                    "type": "instanceOf",
+                                    "value": 1
+                                  },
+                                  {
+                                    "childId": "d16b-522f-e8b9-6d9b",
+                                    "field": "selections",
+                                    "scope": "parent",
+                                    "shared": true,
+                                    "type": "instanceOf",
+                                    "value": 1
+                                  },
+                                  {
+                                    "childId": "88e6-d373-4152-0dd8",
+                                    "field": "selections",
+                                    "includeChildSelections": true,
+                                    "scope": "force",
+                                    "shared": true,
+                                    "type": "atLeast",
+                                    "value": 4
+                                  },
+                                  {
+                                    "childId": "7799-e1d6-762b-700b",
+                                    "field": "selections",
+                                    "includeChildForces": true,
+                                    "includeChildSelections": true,
+                                    "scope": "roster",
+                                    "shared": true,
+                                    "type": "atLeast",
+                                    "value": 1
                                   }
                                 ]
                               }
@@ -92526,6 +92658,28 @@
                             "value": 1
                           }
                         ]
+                      },
+                      {
+                        "comment": "Lion's Blade",
+                        "type": "and",
+                        "conditions": [
+                          {
+                            "childId": "d16b-522f-e8b9-6d9b",
+                            "field": "selections",
+                            "scope": "primary-catalogue",
+                            "shared": true,
+                            "type": "instanceOf",
+                            "value": 1
+                          },
+                          {
+                            "childId": "d16b-522f-e8b9-6d9b",
+                            "field": "selections",
+                            "scope": "parent",
+                            "shared": true,
+                            "type": "instanceOf",
+                            "value": 1
+                          }
+                        ]
                       }
                     ]
                   }
@@ -102067,6 +102221,28 @@
                           },
                           {
                             "childId": "fd9b-d04e-362d-8e5d",
+                            "field": "selections",
+                            "scope": "parent",
+                            "shared": true,
+                            "type": "instanceOf",
+                            "value": 1
+                          }
+                        ]
+                      },
+                      {
+                        "comment": "Lion's Blade",
+                        "type": "and",
+                        "conditions": [
+                          {
+                            "childId": "d16b-522f-e8b9-6d9b",
+                            "field": "selections",
+                            "scope": "primary-catalogue",
+                            "shared": true,
+                            "type": "instanceOf",
+                            "value": 1
+                          },
+                          {
+                            "childId": "d16b-522f-e8b9-6d9b",
                             "field": "selections",
                             "scope": "parent",
                             "shared": true,
@@ -116322,6 +116498,72 @@
                                 "value": 0
                               }
                             ]
+                          },
+                          {
+                            "comment": "Lion's Blade",
+                            "type": "and",
+                            "conditionGroups": [
+                              {
+                                "type": "and",
+                                "conditions": [
+                                  {
+                                    "childId": "2c0e-cb21-17b4-8870",
+                                    "field": "selections",
+                                    "includeChildSelections": true,
+                                    "scope": "force",
+                                    "shared": true,
+                                    "type": "atLeast",
+                                    "value": 2
+                                  },
+                                  {
+                                    "childId": "1fb4-7ef8-2442-2e70",
+                                    "field": "selections",
+                                    "includeChildSelections": true,
+                                    "scope": "force",
+                                    "shared": true,
+                                    "type": "atLeast",
+                                    "value": 2
+                                  }
+                                ]
+                              }
+                            ],
+                            "conditions": [
+                              {
+                                "childId": "d16b-522f-e8b9-6d9b",
+                                "field": "selections",
+                                "scope": "primary-catalogue",
+                                "shared": true,
+                                "type": "instanceOf",
+                                "value": 1
+                              },
+                              {
+                                "childId": "d16b-522f-e8b9-6d9b",
+                                "field": "selections",
+                                "scope": "parent",
+                                "shared": true,
+                                "type": "instanceOf",
+                                "value": 1
+                              },
+                              {
+                                "childId": "88e6-d373-4152-0dd8",
+                                "field": "selections",
+                                "includeChildSelections": true,
+                                "scope": "force",
+                                "shared": true,
+                                "type": "atLeast",
+                                "value": 4
+                              },
+                              {
+                                "childId": "7799-e1d6-762b-700b",
+                                "field": "selections",
+                                "includeChildForces": true,
+                                "includeChildSelections": true,
+                                "scope": "roster",
+                                "shared": true,
+                                "type": "atLeast",
+                                "value": 1
+                              }
+                            ]
                           }
                         ]
                       }
@@ -117636,6 +117878,72 @@
                                     "shared": true,
                                     "type": "equalTo",
                                     "value": 0
+                                  }
+                                ]
+                              },
+                              {
+                                "comment": "Lion's Blade",
+                                "type": "and",
+                                "conditionGroups": [
+                                  {
+                                    "type": "and",
+                                    "conditions": [
+                                      {
+                                        "childId": "2c0e-cb21-17b4-8870",
+                                        "field": "selections",
+                                        "includeChildSelections": true,
+                                        "scope": "force",
+                                        "shared": true,
+                                        "type": "atLeast",
+                                        "value": 2
+                                      },
+                                      {
+                                        "childId": "1fb4-7ef8-2442-2e70",
+                                        "field": "selections",
+                                        "includeChildSelections": true,
+                                        "scope": "force",
+                                        "shared": true,
+                                        "type": "atLeast",
+                                        "value": 2
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "conditions": [
+                                  {
+                                    "childId": "d16b-522f-e8b9-6d9b",
+                                    "field": "selections",
+                                    "scope": "primary-catalogue",
+                                    "shared": true,
+                                    "type": "instanceOf",
+                                    "value": 1
+                                  },
+                                  {
+                                    "childId": "d16b-522f-e8b9-6d9b",
+                                    "field": "selections",
+                                    "scope": "parent",
+                                    "shared": true,
+                                    "type": "instanceOf",
+                                    "value": 1
+                                  },
+                                  {
+                                    "childId": "88e6-d373-4152-0dd8",
+                                    "field": "selections",
+                                    "includeChildSelections": true,
+                                    "scope": "force",
+                                    "shared": true,
+                                    "type": "atLeast",
+                                    "value": 4
+                                  },
+                                  {
+                                    "childId": "7799-e1d6-762b-700b",
+                                    "field": "selections",
+                                    "includeChildForces": true,
+                                    "includeChildSelections": true,
+                                    "scope": "roster",
+                                    "shared": true,
+                                    "type": "atLeast",
+                                    "value": 1
                                   }
                                 ]
                               }
@@ -121245,6 +121553,28 @@
                           },
                           {
                             "childId": "079a-11b5-abfa-96da",
+                            "field": "selections",
+                            "scope": "parent",
+                            "shared": true,
+                            "type": "instanceOf",
+                            "value": 1
+                          }
+                        ]
+                      },
+                      {
+                        "comment": "Lion's Blade",
+                        "type": "and",
+                        "conditions": [
+                          {
+                            "childId": "d16b-522f-e8b9-6d9b",
+                            "field": "selections",
+                            "scope": "primary-catalogue",
+                            "shared": true,
+                            "type": "instanceOf",
+                            "value": 1
+                          },
+                          {
+                            "childId": "d16b-522f-e8b9-6d9b",
                             "field": "selections",
                             "scope": "parent",
                             "shared": true,
@@ -126183,6 +126513,15 @@
                         "shared": true,
                         "type": "instanceOf",
                         "value": 1
+                      },
+                      {
+                        "childId": "d16b-522f-e8b9-6d9b",
+                        "field": "selections",
+                        "scope": "primary-catalogue",
+                        "shared": true,
+                        "type": "instanceOf",
+                        "value": 1,
+                        "comment": "Lion's Blade"
                       }
                     ]
                   }
