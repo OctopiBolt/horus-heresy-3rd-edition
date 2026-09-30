@@ -111,3 +111,5 @@ jobs:
           git add "Horus Heresy 3rd Edition.json"
           git commit -m "Enable standard Astartes detachments for Lion's Blade"
           git push
+
+# trigger standard detachment patch
