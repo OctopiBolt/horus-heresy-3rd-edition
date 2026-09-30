@@ -198,6 +198,138 @@ jobs:
               # Otherwise the Lion's Blade version costs +5 over the normal option.
               return original_cost + 5
 
+          def required_count(link):
+              values = [
+                  int(float(c.get("value", 0)))
+                  for c in link.get("constraints", [])
+                  if c.get("type") == "min" and float(c.get("value", 0)) > 0
+              ]
+              return max(values) if values else 0
+
+          def required_max(link, minimum):
+              values = [
+                  int(float(c.get("value", 0)))
+                  for c in link.get("constraints", [])
+                  if c.get("type") == "max" and float(c.get("value", 0)) > 0
+              ]
+              return max(values) if values else minimum
+
+          def make_vigil_link(link, cfg, current_names):
+              base_name, vigil_name, target_id = cfg
+
+              copied_max = []
+              for i, constraint in enumerate(link.get("constraints", [])):
+                  if constraint.get("type") == "max":
+                      new_constraint = copy.deepcopy(constraint)
+                      new_constraint["id"] = f"lb-vigil-{link.get('id', 'x')}-max-{i}"
+                      copied_max.append(new_constraint)
+
+              if not copied_max:
+                  copied_max = [{
+                      "id": f"lb-vigil-{link.get('id', 'x')}-max",
+                      "field": "selections",
+                      "scope": "parent",
+                      "shared": True,
+                      "type": "max",
+                      "value": max(1, required_count(link)),
+                  }]
+
+              cost_modifiers = [
+                  copy.deepcopy(m)
+                  for m in link.get("modifiers", [])
+                  if m.get("field") == POINTS
+              ]
+
+              return {
+                  "name": weapon_name(link.get("name"), base_name, vigil_name),
+                  "id": f"lb-vigil-{link.get('id', 'x')}",
+                  "hidden": True,
+                  "import": True,
+                  "targetId": target_id,
+                  "type": "selectionEntry",
+                  "constraints": copied_max,
+                  "costs": [{
+                      "name": "Point(s)",
+                      "typeId": POINTS,
+                      "value": vigil_cost(cfg[0], base_cost(link), current_names),
+                  }],
+                  "modifiers": cost_modifiers + [{
+                      "field": "hidden",
+                      "type": "set",
+                      "value": False,
+                      "conditions": [faction_condition()],
+                  }],
+              }
+
+          def wrap_required_weapons(node, current_names):
+              """
+              Turn mandatory bolter-family wargear into a real normal/Vigil choice.
+              This preserves the original mandatory count outside Lion's Blade while
+              exposing the Vigil-pattern replacement only to Lion's Blade.
+              """
+              global changed
+
+              entry_links = node.get("entryLinks")
+              if not isinstance(entry_links, list) or is_choice_owner(node):
+                  return
+
+              required = []
+              for link in list(entry_links):
+                  cfg = BASES.get(link.get("targetId"))
+                  minimum = required_count(link)
+                  if cfg and minimum > 0:
+                      required.append((link, cfg, minimum))
+
+              for link, cfg, minimum in required:
+                  group_id = f"lb-vigil-required-{link.get('id', 'x')}"
+                  groups = node.setdefault("selectionEntryGroups", [])
+
+                  if any(g.get("id") == group_id for g in groups):
+                      continue
+
+                  maximum = required_max(link, minimum)
+
+                  normal_link = copy.deepcopy(link)
+                  normal_link["constraints"] = [
+                      copy.deepcopy(c)
+                      for c in link.get("constraints", [])
+                      if c.get("type") != "min"
+                  ]
+
+                  vigil_link = make_vigil_link(link, cfg, current_names)
+
+                  group = {
+                      "name": f"{link.get('name', cfg[0])} / {cfg[1]}",
+                      "id": group_id,
+                      "hidden": False,
+                      "type": "selectionEntryGroup",
+                      "defaultSelectionEntryId": normal_link.get("id"),
+                      "constraints": [
+                          {
+                              "id": group_id + "-min",
+                              "field": "selections",
+                              "scope": "parent",
+                              "shared": True,
+                              "type": "min",
+                              "value": minimum,
+                          },
+                          {
+                              "id": group_id + "-max",
+                              "field": "selections",
+                              "scope": "parent",
+                              "shared": True,
+                              "type": "max",
+                              "value": maximum,
+                          },
+                      ],
+                      "entryLinks": [normal_link, vigil_link],
+                  }
+
+                  entry_links.remove(link)
+                  groups.append(group)
+                  stats[cfg[1]] += 1
+                  changed = True
+
           def patch(node, names=None):
               global changed
               if names is None:
@@ -210,6 +342,8 @@ jobs:
                   return
 
               current_names = names + ([node.get("name")] if node.get("name") else [])
+
+              wrap_required_weapons(node, current_names)
 
               entry_links = node.get("entryLinks")
               if is_choice_owner(node):
@@ -242,52 +376,7 @@ jobs:
                               changed = True
                           continue
 
-                      copied_max = []
-                      for i, constraint in enumerate(link.get("constraints", [])):
-                          if constraint.get("type") == "max":
-                              new_constraint = copy.deepcopy(constraint)
-                              new_constraint["id"] = f"lb-vigil-{link.get('id', 'x')}-max-{i}"
-                              copied_max.append(new_constraint)
-
-                      if not copied_max:
-                          copied_max = [{
-                              "id": f"lb-vigil-{link.get('id', 'x')}-max",
-                              "field": "selections",
-                              "scope": "parent",
-                              "shared": True,
-                              "type": "max",
-                              "value": 1,
-                          }]
-
-                      cost_modifiers = [
-                          copy.deepcopy(m)
-                          for m in link.get("modifiers", [])
-                          if m.get("field") == POINTS
-                      ]
-
-                      kind = cfg[0]
-                      price = vigil_cost(kind, base_cost(link), current_names)
-
-                      new_link = {
-                          "name": weapon_name(link.get("name"), base_name, vigil_name),
-                          "id": f"lb-vigil-{link.get('id', 'x')}",
-                          "hidden": True,
-                          "import": True,
-                          "targetId": target_id,
-                          "type": "selectionEntry",
-                          "constraints": copied_max,
-                          "costs": [{
-                              "name": "Point(s)",
-                              "typeId": POINTS,
-                              "value": price,
-                          }],
-                          "modifiers": cost_modifiers + [{
-                              "field": "hidden",
-                              "type": "set",
-                              "value": False,
-                              "conditions": [faction_condition()],
-                          }],
-                      }
+                      new_link = make_vigil_link(link, cfg, current_names)
 
                       # Put the Lion's Blade analogue immediately after the normal weapon.
                       idx = entry_links.index(link)
@@ -317,6 +406,7 @@ jobs:
               print(f" - {name}: {count} selectable locations")
           print(" - Ensis Spei: Sergeant models, +15 pts")
           print(" - Spes Aeterna: Command models, +15 pts")
+          print(" - Mandatory bolter-family wargear is converted into a normal/Vigil replacement choice")
           print(" - Bolter / bolt pistol / combi-bolter: normal option +5 pts")
           print(" - Vigil-pattern Heavy bolter: Heavy Support 5 pts; Rhino 15 pts; otherwise normal option +5 pts")
 
