@@ -6,7 +6,7 @@
     "gameSystemId": "sys-9fe4-1dc3-b7c2-73cf",
     "gameSystemRevision": 55,
     "library": false,
-    "revision": 7,
+    "revision": 8,
     "type": "catalogue",
     "catalogueLinks": [
       {
@@ -78,7 +78,7 @@
         "id": "lb-rite-root-link-0001",
         "hidden": false,
         "import": true,
-        "targetId": "75e6-6851-2416-7c05",
+        "targetId": "lb-rite-entry-0001",
         "type": "selectionEntry",
         "categoryLinks": [
           {
@@ -841,6 +841,59 @@
                 "name": "Traits",
                 "$text": "Power",
                 "typeId": "76e3-c188-bc65-3467"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rite of War",
+        "id": "lb-rite-entry-0001",
+        "hidden": false,
+        "import": true,
+        "type": "upgrade",
+        "constraints": [
+          {
+            "id": "lb-rite-entry-min-0001",
+            "field": "selections",
+            "scope": "parent",
+            "shared": true,
+            "type": "min",
+            "value": 1
+          },
+          {
+            "id": "lb-rite-entry-max-0001",
+            "field": "selections",
+            "scope": "parent",
+            "shared": true,
+            "type": "max",
+            "value": 1
+          }
+        ],
+        "entryLinks": [
+          {
+            "name": "Rite of War",
+            "id": "lb-rite-group-link-0001",
+            "hidden": false,
+            "import": true,
+            "targetId": "lb-rw-0001",
+            "type": "selectionEntryGroup",
+            "constraints": [
+              {
+                "id": "lb-rite-group-min-0001",
+                "field": "selections",
+                "scope": "parent",
+                "shared": true,
+                "type": "min",
+                "value": 1
+              },
+              {
+                "id": "lb-rite-group-max-0001",
+                "field": "selections",
+                "scope": "parent",
+                "shared": true,
+                "type": "max",
+                "value": 1
               }
             ]
           }
