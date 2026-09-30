@@ -73,6 +73,29 @@ jobs:
 
           changed = False
 
+          # Remove transient lbw-* links left by an earlier intermediate patch.
+          def remove_transient_links(node):
+              global changed
+              if isinstance(node, list):
+                  for item in node:
+                      remove_transient_links(item)
+                  return
+              if not isinstance(node, dict):
+                  return
+              if isinstance(node.get("entryLinks"), list):
+                  before = len(node["entryLinks"])
+                  node["entryLinks"] = [
+                      link for link in node["entryLinks"]
+                      if not str(link.get("targetId", "")).startswith("lbw-")
+                  ]
+                  if len(node["entryLinks"]) != before:
+                      changed = True
+              for value in node.values():
+                  if isinstance(value, (dict, list)):
+                      remove_transient_links(value)
+
+          remove_transient_links(cat)
+
           # Ensis Spei for Sergeant models and Spes Aeterna for Command models.
           legion_group = next(
               g for g in cat.get("sharedSelectionEntryGroups", [])
