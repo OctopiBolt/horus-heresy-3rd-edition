@@ -6,7 +6,7 @@
     "gameSystemId": "sys-9fe4-1dc3-b7c2-73cf",
     "gameSystemRevision": 55,
     "library": false,
-    "revision": 18,
+    "revision": 19,
     "type": "catalogue",
     "catalogueLinks": [
       {
@@ -1548,6 +1548,24 @@
                     "constraints": [
                       {
                         "id": "lb-praesides-primus-ensis-max",
+                        "field": "selections",
+                        "scope": "parent",
+                        "shared": true,
+                        "type": "max",
+                        "value": 1
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Ensis Transitus",
+                    "id": "lb-praesides-primus-ensis-transitus-0001",
+                    "hidden": false,
+                    "import": true,
+                    "targetId": "lb-ensis-transitus-0001",
+                    "type": "selectionEntry",
+                    "constraints": [
+                      {
+                        "id": "lb-praesides-primus-ensis-transitus-max-0001",
                         "field": "selections",
                         "scope": "parent",
                         "shared": true,
@@ -3248,12 +3266,37 @@
                       {
                         "name": "Point(s)",
                         "typeId": "9893-c379-920b-8982",
-                        "value": 15
+                        "value": 10
                       }
                     ],
                     "constraints": [
                       {
                         "id": "lb-locutarii-leader-ensis-spei-max-0001",
+                        "field": "selections",
+                        "scope": "parent",
+                        "shared": true,
+                        "type": "max",
+                        "value": 1
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Spes Aeterna",
+                    "id": "lb-locutarii-leader-spes-aeterna-0001",
+                    "hidden": false,
+                    "import": true,
+                    "targetId": "lb-spes-aeterna-0001",
+                    "type": "selectionEntry",
+                    "costs": [
+                      {
+                        "name": "Point(s)",
+                        "typeId": "9893-c379-920b-8982",
+                        "value": 15
+                      }
+                    ],
+                    "constraints": [
+                      {
+                        "id": "lb-locutarii-leader-spes-aeterna-max-0001",
                         "field": "selections",
                         "scope": "parent",
                         "shared": true,
@@ -3361,6 +3404,59 @@
             "id": "lb-locutarii-lb-unit-0001",
             "primary": false,
             "targetId": "dfc9-c210-4820-4ca6"
+          }
+        ]
+      },
+      {
+        "name": "Ensis Transitus",
+        "id": "lb-ensis-transitus-global-0001",
+        "hidden": false,
+        "import": true,
+        "type": "upgrade",
+        "profiles": [
+          {
+            "name": "Ensis Transitus",
+            "id": "lb-ensis-transitus-global-prof-0001",
+            "hidden": false,
+            "typeId": "c24d-2a9a-6e9f-59ff",
+            "typeName": "Melee Weapon",
+            "characteristics": [
+              {
+                "name": "IM",
+                "$text": "+1",
+                "typeId": "6eec-4093-f946-1014"
+              },
+              {
+                "name": "AM",
+                "$text": "A",
+                "typeId": "03d0-6094-84f0-e27e"
+              },
+              {
+                "name": "SM",
+                "$text": "S",
+                "typeId": "4505-de6f-d4ae-6280"
+              },
+              {
+                "name": "AP",
+                "$text": "3",
+                "typeId": "a014-126b-3b7b-27e8"
+              },
+              {
+                "name": "D",
+                "$text": "1",
+                "typeId": "6a9d-4feb-065a-33e7"
+              },
+              {
+                "name": "Special Rules",
+                "$text": "Breaching (5+)",
+                "typeId": "ebe0-7b28-b40c-694e"
+              },
+              {
+                "name": "Traits",
+                "$text": "Power",
+                "typeId": "76e3-c188-bc65-3467"
+              }
+            ]
           }
         ]
       }

@@ -10,7 +10,7 @@
     "gameSystemRevision": 1,
     "hidden": false,
     "library": true,
-    "revision": 65,
+    "revision": 66,
     "type": "catalogue",
     "xmlns": "http://www.battlescribe.net/schema/catalogueSchema",
     "catalogueLinks": [
@@ -4460,6 +4460,14 @@
                         ]
                       }
                     ]
+                  },
+                  {
+                    "name": "Legion Specific Upgrade",
+                    "id": "lb-legspec-auto-0001-20f6-f04f-2bdd-0e90",
+                    "hidden": false,
+                    "import": true,
+                    "targetId": "ef74-faa7-0d36-762b",
+                    "type": "selectionEntryGroup"
                   }
                 ],
                 "profiles": [
@@ -7957,6 +7965,14 @@
                         "value": 1
                       }
                     ]
+                  },
+                  {
+                    "name": "Legion Specific Upgrade",
+                    "id": "lb-legspec-auto-0002-9dff-8f3c-f03e-56e8",
+                    "hidden": false,
+                    "import": true,
+                    "targetId": "ef74-faa7-0d36-762b",
+                    "type": "selectionEntryGroup"
                   }
                 ],
                 "profiles": [
@@ -12046,6 +12062,14 @@
                         "value": 1
                       }
                     ]
+                  },
+                  {
+                    "name": "Legion Specific Upgrade",
+                    "id": "lb-legspec-auto-0003-8846-2633-89bb-8de8",
+                    "hidden": false,
+                    "import": true,
+                    "targetId": "ef74-faa7-0d36-762b",
+                    "type": "selectionEntryGroup"
                   }
                 ],
                 "modifiers": [
@@ -16420,6 +16444,14 @@
                         "value": 1
                       }
                     ]
+                  },
+                  {
+                    "name": "Legion Specific Upgrade",
+                    "id": "lb-legspec-auto-0004-5585-e7b5-98b0-f51d",
+                    "hidden": false,
+                    "import": true,
+                    "targetId": "ef74-faa7-0d36-762b",
+                    "type": "selectionEntryGroup"
                   }
                 ],
                 "profiles": [
@@ -186470,6 +186502,14 @@
                     ]
                   }
                 ]
+              },
+              {
+                "name": "Legion Specific Upgrade",
+                "id": "lb-legspec-auto-0005-7775-9f85-4474-ad0e",
+                "hidden": false,
+                "import": true,
+                "targetId": "ef74-faa7-0d36-762b",
+                "type": "selectionEntryGroup"
               }
             ],
             "profiles": [
@@ -188642,6 +188682,14 @@
                     ]
                   }
                 ]
+              },
+              {
+                "name": "Legion Specific Upgrade",
+                "id": "lb-legspec-auto-0006-f854-ce3e-4c4c-9c38",
+                "hidden": false,
+                "import": true,
+                "targetId": "ef74-faa7-0d36-762b",
+                "type": "selectionEntryGroup"
               }
             ],
             "profiles": [
@@ -251003,27 +251051,20 @@
             ]
           },
           {
-            "name": "Ensis Spei",
-            "id": "lb-ensis-sergeant-upgrade",
+            "name": "Ensis Transitus",
+            "id": "lb-ensis-transitus-sergeant-upgrade",
             "hidden": true,
             "import": true,
-            "targetId": "lb-ensis-spei-global-0001",
+            "targetId": "lb-ensis-transitus-global-0001",
             "type": "selectionEntry",
             "constraints": [
               {
-                "id": "lb-ensis-sergeant-upgrade-max",
+                "id": "lb-ensis-transitus-sergeant-upgrade-max",
                 "field": "selections",
                 "scope": "parent",
                 "shared": true,
                 "type": "max",
                 "value": 1
-              }
-            ],
-            "costs": [
-              {
-                "name": "Point(s)",
-                "typeId": "9893-c379-920b-8982",
-                "value": 15
               }
             ],
             "modifiers": [
@@ -251052,35 +251093,53 @@
                         "shared": true,
                         "type": "instanceOf",
                         "value": 1
+                      },
+                      {
+                        "childId": "9871-cb62-5283-2216",
+                        "field": "selections",
+                        "includeChildSelections": true,
+                        "scope": "model",
+                        "shared": true,
+                        "type": "notInstanceOf",
+                        "value": 1
+                      },
+                      {
+                        "childId": "5a95-e564-96b2-8dc9",
+                        "field": "selections",
+                        "includeChildSelections": true,
+                        "scope": "model",
+                        "shared": true,
+                        "type": "notInstanceOf",
+                        "value": 1
                       }
                     ]
                   }
                 ]
-              }
-            ]
-          },
-          {
-            "name": "Spes Aeterna",
-            "id": "lb-spes-command-upgrade",
-            "hidden": true,
-            "import": true,
-            "targetId": "lb-spes-aeterna-global-0001",
-            "type": "selectionEntry",
-            "constraints": [
-              {
-                "id": "lb-spes-command-upgrade-max",
-                "field": "selections",
-                "scope": "parent",
-                "shared": true,
-                "type": "max",
-                "value": 1
               }
             ],
             "costs": [
               {
                 "name": "Point(s)",
                 "typeId": "9893-c379-920b-8982",
-                "value": 15
+                "value": 5
+              }
+            ]
+          },
+          {
+            "name": "Ensis Spei",
+            "id": "lb-ensis-sergeant-upgrade",
+            "hidden": true,
+            "import": true,
+            "targetId": "lb-ensis-spei-global-0001",
+            "type": "selectionEntry",
+            "constraints": [
+              {
+                "id": "lb-ensis-sergeant-upgrade-max",
+                "field": "selections",
+                "scope": "parent",
+                "shared": true,
+                "type": "max",
+                "value": 1
               }
             ],
             "modifiers": [
@@ -251102,17 +251161,254 @@
                         "value": 1
                       },
                       {
-                        "childId": "9871-cb62-5283-2216",
+                        "childId": "8045-89a4-76d4-fcef",
                         "field": "selections",
                         "includeChildSelections": true,
                         "scope": "model",
                         "shared": true,
                         "type": "instanceOf",
                         "value": 1
+                      },
+                      {
+                        "childId": "9871-cb62-5283-2216",
+                        "field": "selections",
+                        "includeChildSelections": true,
+                        "scope": "model",
+                        "shared": true,
+                        "type": "notInstanceOf",
+                        "value": 1
+                      },
+                      {
+                        "childId": "5a95-e564-96b2-8dc9",
+                        "field": "selections",
+                        "includeChildSelections": true,
+                        "scope": "model",
+                        "shared": true,
+                        "type": "notInstanceOf",
+                        "value": 1
                       }
                     ]
                   }
                 ]
+              }
+            ],
+            "costs": [
+              {
+                "name": "Point(s)",
+                "typeId": "9893-c379-920b-8982",
+                "value": 15
+              }
+            ]
+          },
+          {
+            "name": "Ensis Transitus",
+            "id": "lb-ensis-transitus-command-upgrade",
+            "hidden": true,
+            "import": true,
+            "targetId": "lb-ensis-transitus-global-0001",
+            "type": "selectionEntry",
+            "constraints": [
+              {
+                "id": "lb-ensis-transitus-command-upgrade-max",
+                "field": "selections",
+                "scope": "parent",
+                "shared": true,
+                "type": "max",
+                "value": 1
+              }
+            ],
+            "modifiers": [
+              {
+                "field": "hidden",
+                "type": "set",
+                "value": false,
+                "conditionGroups": [
+                  {
+                    "type": "and",
+                    "conditions": [
+                      {
+                        "childId": "d16b-522f-e8b9-6d9b",
+                        "field": "selections",
+                        "includeChildSelections": true,
+                        "scope": "force",
+                        "shared": true,
+                        "type": "instanceOf",
+                        "value": 1
+                      }
+                    ],
+                    "conditionGroups": [
+                      {
+                        "type": "or",
+                        "conditions": [
+                          {
+                            "childId": "9871-cb62-5283-2216",
+                            "field": "selections",
+                            "includeChildSelections": true,
+                            "scope": "model",
+                            "shared": true,
+                            "type": "instanceOf",
+                            "value": 1
+                          },
+                          {
+                            "childId": "5a95-e564-96b2-8dc9",
+                            "field": "selections",
+                            "includeChildSelections": true,
+                            "scope": "model",
+                            "shared": true,
+                            "type": "instanceOf",
+                            "value": 1
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Ensis Spei",
+            "id": "lb-ensis-spei-command-upgrade",
+            "hidden": true,
+            "import": true,
+            "targetId": "lb-ensis-spei-global-0001",
+            "type": "selectionEntry",
+            "constraints": [
+              {
+                "id": "lb-ensis-spei-command-upgrade-max",
+                "field": "selections",
+                "scope": "parent",
+                "shared": true,
+                "type": "max",
+                "value": 1
+              }
+            ],
+            "modifiers": [
+              {
+                "field": "hidden",
+                "type": "set",
+                "value": false,
+                "conditionGroups": [
+                  {
+                    "type": "and",
+                    "conditions": [
+                      {
+                        "childId": "d16b-522f-e8b9-6d9b",
+                        "field": "selections",
+                        "includeChildSelections": true,
+                        "scope": "force",
+                        "shared": true,
+                        "type": "instanceOf",
+                        "value": 1
+                      }
+                    ],
+                    "conditionGroups": [
+                      {
+                        "type": "or",
+                        "conditions": [
+                          {
+                            "childId": "9871-cb62-5283-2216",
+                            "field": "selections",
+                            "includeChildSelections": true,
+                            "scope": "model",
+                            "shared": true,
+                            "type": "instanceOf",
+                            "value": 1
+                          },
+                          {
+                            "childId": "5a95-e564-96b2-8dc9",
+                            "field": "selections",
+                            "includeChildSelections": true,
+                            "scope": "model",
+                            "shared": true,
+                            "type": "instanceOf",
+                            "value": 1
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "costs": [
+              {
+                "name": "Point(s)",
+                "typeId": "9893-c379-920b-8982",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "name": "Spes Aeterna",
+            "id": "lb-spes-command-upgrade",
+            "hidden": true,
+            "import": true,
+            "targetId": "lb-spes-aeterna-global-0001",
+            "type": "selectionEntry",
+            "constraints": [
+              {
+                "id": "lb-spes-command-upgrade-max",
+                "field": "selections",
+                "scope": "parent",
+                "shared": true,
+                "type": "max",
+                "value": 1
+              }
+            ],
+            "modifiers": [
+              {
+                "field": "hidden",
+                "type": "set",
+                "value": false,
+                "conditionGroups": [
+                  {
+                    "type": "and",
+                    "conditions": [
+                      {
+                        "childId": "d16b-522f-e8b9-6d9b",
+                        "field": "selections",
+                        "includeChildSelections": true,
+                        "scope": "force",
+                        "shared": true,
+                        "type": "instanceOf",
+                        "value": 1
+                      }
+                    ],
+                    "conditionGroups": [
+                      {
+                        "type": "or",
+                        "conditions": [
+                          {
+                            "childId": "9871-cb62-5283-2216",
+                            "field": "selections",
+                            "includeChildSelections": true,
+                            "scope": "model",
+                            "shared": true,
+                            "type": "instanceOf",
+                            "value": 1
+                          },
+                          {
+                            "childId": "5a95-e564-96b2-8dc9",
+                            "field": "selections",
+                            "includeChildSelections": true,
+                            "scope": "model",
+                            "shared": true,
+                            "type": "instanceOf",
+                            "value": 1
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "costs": [
+              {
+                "name": "Point(s)",
+                "typeId": "9893-c379-920b-8982",
+                "value": 15
               }
             ]
           }
