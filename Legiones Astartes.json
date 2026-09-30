@@ -10,7 +10,7 @@
     "gameSystemRevision": 1,
     "hidden": false,
     "library": true,
-    "revision": 61,
+    "revision": 62,
     "type": "catalogue",
     "xmlns": "http://www.battlescribe.net/schema/catalogueSchema",
     "catalogueLinks": [
@@ -41072,6 +41072,51 @@
                         "id": "lb-vigil-8ea5-3791-a4ab-d0b9",
                         "hidden": true,
                         "import": true,
+                        "targetId": "lb-vigil-bolter-global-0001",
+                        "type": "selectionEntry",
+                        "constraints": [
+                          {
+                            "id": "lb-vigil-8ea5-3791-a4ab-d0b9-max-0",
+                            "automatic": true,
+                            "field": "selections",
+                            "scope": "parent",
+                            "shared": false,
+                            "type": "max",
+                            "value": 1
+                          }
+                        ],
+                        "costs": [
+                          {
+                            "name": "Point(s)",
+                            "typeId": "9893-c379-920b-8982",
+                            "value": 5
+                          }
+                        ],
+                        "modifiers": [
+                          {
+                            "field": "hidden",
+                            "type": "set",
+                            "value": false,
+                            "conditions": [
+                              {
+                                "childId": "d16b-522f-e8b9-6d9b",
+                                "childName": "Lion's Blade",
+                                "field": "selections",
+                                "includeChildSelections": true,
+                                "scope": "force",
+                                "shared": true,
+                                "type": "instanceOf",
+                                "value": 1
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "Vigil-pattern Bolter",
+                        "id": "lb-vigil-8ea5-3791-a4ab-d0b9",
+                        "hidden": true,
+                        "import": true,
                         "targetId": "lbw-vigil-bolter-0001",
                         "type": "selectionEntry",
                         "constraints": [
@@ -61738,6 +61783,51 @@
                             "id": "lb-vigil-612a-9713-f1e9-5ec7",
                             "hidden": true,
                             "import": true,
+                            "targetId": "lb-vigil-bolter-global-0001",
+                            "type": "selectionEntry",
+                            "constraints": [
+                              {
+                                "id": "lb-vigil-612a-9713-f1e9-5ec7-max-0",
+                                "automatic": true,
+                                "field": "selections",
+                                "scope": "parent",
+                                "shared": true,
+                                "type": "max",
+                                "value": 1
+                              }
+                            ],
+                            "costs": [
+                              {
+                                "name": "Point(s)",
+                                "typeId": "9893-c379-920b-8982",
+                                "value": 5
+                              }
+                            ],
+                            "modifiers": [
+                              {
+                                "field": "hidden",
+                                "type": "set",
+                                "value": false,
+                                "conditions": [
+                                  {
+                                    "childId": "d16b-522f-e8b9-6d9b",
+                                    "childName": "Lion's Blade",
+                                    "field": "selections",
+                                    "includeChildSelections": true,
+                                    "scope": "force",
+                                    "shared": true,
+                                    "type": "instanceOf",
+                                    "value": 1
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "name": "Vigil-pattern Bolter",
+                            "id": "lb-vigil-612a-9713-f1e9-5ec7",
+                            "hidden": true,
+                            "import": true,
                             "targetId": "lbw-vigil-bolter-0001",
                             "type": "selectionEntry",
                             "constraints": [
@@ -64140,6 +64230,50 @@
                             "id": "lb-vigil-5133-2aed-17d9-6aa5",
                             "hidden": true,
                             "import": true,
+                            "targetId": "lb-vigil-combi-bolter-global-0001",
+                            "type": "selectionEntry",
+                            "constraints": [
+                              {
+                                "id": "lb-vigil-5133-2aed-17d9-6aa5-max",
+                                "field": "selections",
+                                "scope": "parent",
+                                "shared": true,
+                                "type": "max",
+                                "value": 1
+                              }
+                            ],
+                            "costs": [
+                              {
+                                "name": "Point(s)",
+                                "typeId": "9893-c379-920b-8982",
+                                "value": 5
+                              }
+                            ],
+                            "modifiers": [
+                              {
+                                "field": "hidden",
+                                "type": "set",
+                                "value": false,
+                                "conditions": [
+                                  {
+                                    "childId": "d16b-522f-e8b9-6d9b",
+                                    "childName": "Lion's Blade",
+                                    "field": "selections",
+                                    "includeChildSelections": true,
+                                    "scope": "force",
+                                    "shared": true,
+                                    "type": "instanceOf",
+                                    "value": 1
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "name": "Vigil-pattern Combi-bolter",
+                            "id": "lb-vigil-5133-2aed-17d9-6aa5",
+                            "hidden": true,
+                            "import": true,
                             "targetId": "lbw-vigil-combi-bolter-0001",
                             "type": "selectionEntry",
                             "constraints": [
@@ -64819,6 +64953,51 @@
                                     "scope": "roster",
                                     "shared": true,
                                     "type": "atLeast",
+                                    "value": 1
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "name": "Vigil-pattern Bolter",
+                            "id": "lb-vigil-3d0e-63be-92c1-f9a1",
+                            "hidden": true,
+                            "import": true,
+                            "targetId": "lb-vigil-bolter-global-0001",
+                            "type": "selectionEntry",
+                            "constraints": [
+                              {
+                                "id": "lb-vigil-3d0e-63be-92c1-f9a1-max-0",
+                                "automatic": true,
+                                "field": "selections",
+                                "scope": "parent",
+                                "shared": false,
+                                "type": "max",
+                                "value": 1
+                              }
+                            ],
+                            "costs": [
+                              {
+                                "name": "Point(s)",
+                                "typeId": "9893-c379-920b-8982",
+                                "value": 5
+                              }
+                            ],
+                            "modifiers": [
+                              {
+                                "field": "hidden",
+                                "type": "set",
+                                "value": false,
+                                "conditions": [
+                                  {
+                                    "childId": "d16b-522f-e8b9-6d9b",
+                                    "childName": "Lion's Blade",
+                                    "field": "selections",
+                                    "includeChildSelections": true,
+                                    "scope": "force",
+                                    "shared": true,
+                                    "type": "instanceOf",
                                     "value": 1
                                   }
                                 ]
@@ -129226,6 +129405,51 @@
                         "id": "lb-vigil-1d6f-f394-bd4d-da82",
                         "hidden": true,
                         "import": true,
+                        "targetId": "lb-vigil-bolter-global-0001",
+                        "type": "selectionEntry",
+                        "constraints": [
+                          {
+                            "id": "lb-vigil-1d6f-f394-bd4d-da82-max-0",
+                            "automatic": true,
+                            "field": "selections",
+                            "scope": "parent",
+                            "shared": false,
+                            "type": "max",
+                            "value": 1
+                          }
+                        ],
+                        "costs": [
+                          {
+                            "name": "Point(s)",
+                            "typeId": "9893-c379-920b-8982",
+                            "value": 5
+                          }
+                        ],
+                        "modifiers": [
+                          {
+                            "field": "hidden",
+                            "type": "set",
+                            "value": false,
+                            "conditions": [
+                              {
+                                "childId": "d16b-522f-e8b9-6d9b",
+                                "childName": "Lion's Blade",
+                                "field": "selections",
+                                "includeChildSelections": true,
+                                "scope": "force",
+                                "shared": true,
+                                "type": "instanceOf",
+                                "value": 1
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "Vigil-pattern Bolter",
+                        "id": "lb-vigil-1d6f-f394-bd4d-da82",
+                        "hidden": true,
+                        "import": true,
                         "targetId": "lbw-vigil-bolter-0001",
                         "type": "selectionEntry",
                         "constraints": [
@@ -134719,6 +134943,51 @@
                         "id": "lb-vigil-f8c7-364b-abb0-9d2a",
                         "hidden": true,
                         "import": true,
+                        "targetId": "lb-vigil-pistol-global-0001",
+                        "type": "selectionEntry",
+                        "constraints": [
+                          {
+                            "id": "lb-vigil-f8c7-364b-abb0-9d2a-max-0",
+                            "automatic": true,
+                            "field": "selections",
+                            "scope": "parent",
+                            "shared": false,
+                            "type": "max",
+                            "value": 1
+                          }
+                        ],
+                        "costs": [
+                          {
+                            "name": "Point(s)",
+                            "typeId": "9893-c379-920b-8982",
+                            "value": 5
+                          }
+                        ],
+                        "modifiers": [
+                          {
+                            "field": "hidden",
+                            "type": "set",
+                            "value": false,
+                            "conditions": [
+                              {
+                                "childId": "d16b-522f-e8b9-6d9b",
+                                "childName": "Lion's Blade",
+                                "field": "selections",
+                                "includeChildSelections": true,
+                                "scope": "force",
+                                "shared": true,
+                                "type": "instanceOf",
+                                "value": 1
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "Vigil-pattern Bolt pistol",
+                        "id": "lb-vigil-f8c7-364b-abb0-9d2a",
+                        "hidden": true,
+                        "import": true,
                         "targetId": "lbw-vigil-pistol-0001",
                         "type": "selectionEntry",
                         "constraints": [
@@ -138812,6 +139081,51 @@
                                 "scope": "roster",
                                 "shared": true,
                                 "type": "atLeast",
+                                "value": 1
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "Vigil-pattern Bolter",
+                        "id": "lb-vigil-5287-5589-cc4c-6296",
+                        "hidden": true,
+                        "import": true,
+                        "targetId": "lb-vigil-bolter-global-0001",
+                        "type": "selectionEntry",
+                        "constraints": [
+                          {
+                            "id": "lb-vigil-5287-5589-cc4c-6296-max-0",
+                            "automatic": true,
+                            "field": "selections",
+                            "scope": "parent",
+                            "shared": false,
+                            "type": "max",
+                            "value": 1
+                          }
+                        ],
+                        "costs": [
+                          {
+                            "name": "Point(s)",
+                            "typeId": "9893-c379-920b-8982",
+                            "value": 5
+                          }
+                        ],
+                        "modifiers": [
+                          {
+                            "field": "hidden",
+                            "type": "set",
+                            "value": false,
+                            "conditions": [
+                              {
+                                "childId": "d16b-522f-e8b9-6d9b",
+                                "childName": "Lion's Blade",
+                                "field": "selections",
+                                "includeChildSelections": true,
+                                "scope": "force",
+                                "shared": true,
+                                "type": "instanceOf",
                                 "value": 1
                               }
                             ]
@@ -226320,6 +226634,51 @@
                         "id": "lb-vigil-16c4-631a-1c1b-f65b",
                         "hidden": true,
                         "import": true,
+                        "targetId": "lb-vigil-bolter-global-0001",
+                        "type": "selectionEntry",
+                        "constraints": [
+                          {
+                            "id": "lb-vigil-16c4-631a-1c1b-f65b-max-0",
+                            "automatic": true,
+                            "field": "selections",
+                            "scope": "parent",
+                            "shared": false,
+                            "type": "max",
+                            "value": 1
+                          }
+                        ],
+                        "costs": [
+                          {
+                            "name": "Point(s)",
+                            "typeId": "9893-c379-920b-8982",
+                            "value": 5
+                          }
+                        ],
+                        "modifiers": [
+                          {
+                            "field": "hidden",
+                            "type": "set",
+                            "value": false,
+                            "conditions": [
+                              {
+                                "childId": "d16b-522f-e8b9-6d9b",
+                                "childName": "Lion's Blade",
+                                "field": "selections",
+                                "includeChildSelections": true,
+                                "scope": "force",
+                                "shared": true,
+                                "type": "instanceOf",
+                                "value": 1
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "Vigil-pattern Bolter",
+                        "id": "lb-vigil-16c4-631a-1c1b-f65b",
+                        "hidden": true,
+                        "import": true,
                         "targetId": "lbw-vigil-bolter-0001",
                         "type": "selectionEntry",
                         "constraints": [
@@ -239338,7 +239697,7 @@
               {
                 "name": "Point(s)",
                 "typeId": "9893-c379-920b-8982",
-                "value": 15
+                "value": 5
               }
             ],
             "modifiers": [
