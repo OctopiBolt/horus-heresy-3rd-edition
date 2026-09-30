@@ -33,12 +33,12 @@ jobs:
           SERGEANT = "8045-89a4-76d4-fcef"
           COMMAND = "9871-cb62-5283-2216"
 
-          ENSIS = "lb-ensis-spei-global-0001"
-          SPES = "lb-spes-aeterna-global-0001"
-          VIGIL_PISTOL = "lb-vigil-pistol-global-0001"
-          VIGIL_BOLTER = "lb-vigil-bolter-global-0001"
-          VIGIL_HEAVY = "lb-vigil-heavy-bolter-global-0001"
-          VIGIL_COMBI = "lb-vigil-combi-bolter-global-0001"
+          ENSIS = "lbw-ensis-spei-0001"
+          SPES = "lbw-spes-aeterna-0001"
+          VIGIL_PISTOL = "lbw-vigil-pistol-0001"
+          VIGIL_BOLTER = "lbw-vigil-bolter-0001"
+          VIGIL_HEAVY = "lbw-vigil-heavy-bolter-0001"
+          VIGIL_COMBI = "lbw-vigil-combi-bolter-0001"
 
           BASES = {
               "2942-f783-d627-33c5": ("bolt pistol", "Vigil-pattern Bolt pistol", VIGIL_PISTOL),
@@ -50,6 +50,7 @@ jobs:
           def faction_condition():
               return {
                   "childId": LB_CATALOGUE,
+                  "childName": "Lion's Blade",
                   "field": "selections",
                   "includeChildSelections": True,
                   "scope": "force",
@@ -58,9 +59,10 @@ jobs:
                   "value": 1,
               }
 
-          def subtype_condition(subtype):
+          def subtype_condition(subtype, name):
               return {
                   "childId": subtype,
+                  "childName": name,
                   "field": "selections",
                   "includeChildSelections": True,
                   "scope": "model",
@@ -71,16 +73,16 @@ jobs:
 
           changed = False
 
-          # Legion Specific Upgrade: Ensis for Sergeants, Spes Aeterna for Command models.
+          # Ensis Spei for Sergeant models and Spes Aeterna for Command models.
           legion_group = next(
               g for g in cat.get("sharedSelectionEntryGroups", [])
               if g.get("id") == "ef74-faa7-0d36-762b"
           )
           links = legion_group.setdefault("entryLinks", [])
 
-          def add_legion_upgrade(name, entry_id, target_id, subtype):
+          def add_legion_upgrade(name, entry_id, target_id, subtype, subtype_name):
               global changed
-              if any(x.get("id") == entry_id for x in links):
+              if any(x.get("targetId") == target_id for x in links):
                   return
               links.append({
                   "name": name,
@@ -110,15 +112,21 @@ jobs:
                           "type": "and",
                           "conditions": [
                               faction_condition(),
-                              subtype_condition(subtype),
+                              subtype_condition(subtype, subtype_name),
                           ],
                       }],
                   }],
               })
               changed = True
 
-          add_legion_upgrade("Ensis Spei", "lb-ensis-sergeant-upgrade", ENSIS, SERGEANT)
-          add_legion_upgrade("Spes Aeterna", "lb-spes-command-upgrade", SPES, COMMAND)
+          add_legion_upgrade(
+              "Ensis Spei", "lb-ensis-sergeant-upgrade",
+              ENSIS, SERGEANT, "Sergeant Model Sub-Type"
+          )
+          add_legion_upgrade(
+              "Spes Aeterna", "lb-spes-command-upgrade",
+              SPES, COMMAND, "Command Model Sub-type"
+          )
 
           stats = {
               "Vigil-pattern Bolt pistol": 0,
@@ -133,46 +141,71 @@ jobs:
                   return re.sub(re.escape(base_name), vigil_name, original, flags=re.IGNORECASE)
               return vigil_name
 
-          def selectable(link):
-              # Do not add an alternative beside an automatically required base weapon.
-              for c in link.get("constraints", []):
-                  if c.get("type") == "min" and float(c.get("value", 0)) > 0:
-                      return False
-              return True
+          def base_cost(link):
+              for c in link.get("costs", []):
+                  if c.get("typeId") == POINTS:
+                      return int(c.get("value", 0))
+              return 0
 
-          def patch(node):
+          def is_choice_owner(node):
+              if not isinstance(node, dict) or not isinstance(node.get("entryLinks"), list):
+                  return False
+              if node.get("type") == "selectionEntryGroup":
+                  return True
+              if node.get("type") is None and (
+                  "constraints" in node or "defaultSelectionEntryId" in node
+              ):
+                  return True
+              if node.get("name") in {
+                  "Legion Heavy Weapons",
+                  "Legion Pintle Weapons",
+                  "Legion Combi-weapons",
+              }:
+                  return True
+              return False
+
+          def vigil_cost(kind, original_cost, names):
+              if kind == "heavy bolter":
+                  # Heavy Support takes the Vigil-pattern heavy bolter for 5 pts.
+                  if "Legion Heavy Weapons" in names or "Heavy Support Squad" in names:
+                      return 5
+                  # Rhino heavy bolter is explicitly 15 pts.
+                  if any(re.search(r"\bRhino\b", n or "", flags=re.IGNORECASE) for n in names):
+                      return 15
+              # Otherwise the Lion's Blade version costs +5 over the normal option.
+              return original_cost + 5
+
+          def patch(node, names=None):
               global changed
+              if names is None:
+                  names = []
               if isinstance(node, list):
                   for item in node:
-                      patch(item)
+                      patch(item, names)
                   return
               if not isinstance(node, dict):
                   return
 
+              current_names = names + ([node.get("name")] if node.get("name") else [])
+
               entry_links = node.get("entryLinks")
-              if isinstance(entry_links, list):
+              if is_choice_owner(node):
                   originals = list(entry_links)
                   for link in originals:
                       cfg = BASES.get(link.get("targetId"))
-                      if not cfg or not selectable(link):
+                      if not cfg:
                           continue
 
                       base_name, vigil_name, target_id = cfg
                       if any(x.get("targetId") == target_id for x in entry_links):
                           continue
 
-                      base_cost = 0
-                      for c in link.get("costs", []):
-                          if c.get("typeId") == POINTS:
-                              base_cost = c.get("value", 0)
-                              break
-
                       copied_max = []
-                      for i, c in enumerate(link.get("constraints", [])):
-                          if c.get("type") == "max":
-                              nc = copy.deepcopy(c)
-                              nc["id"] = f"lb-vigil-{link.get('id', 'x')}-max-{i}"
-                              copied_max.append(nc)
+                      for i, constraint in enumerate(link.get("constraints", [])):
+                          if constraint.get("type") == "max":
+                              new_constraint = copy.deepcopy(constraint)
+                              new_constraint["id"] = f"lb-vigil-{link.get('id', 'x')}-max-{i}"
+                              copied_max.append(new_constraint)
 
                       if not copied_max:
                           copied_max = [{
@@ -190,6 +223,9 @@ jobs:
                           if m.get("field") == POINTS
                       ]
 
+                      kind = cfg[0]
+                      price = vigil_cost(kind, base_cost(link), current_names)
+
                       new_link = {
                           "name": weapon_name(link.get("name"), base_name, vigil_name),
                           "id": f"lb-vigil-{link.get('id', 'x')}",
@@ -201,7 +237,7 @@ jobs:
                           "costs": [{
                               "name": "Point(s)",
                               "typeId": POINTS,
-                              "value": float(base_cost) + 5,
+                              "value": price,
                           }],
                           "modifiers": cost_modifiers + [{
                               "field": "hidden",
@@ -211,17 +247,16 @@ jobs:
                           }],
                       }
 
-                      # Keep integer point costs formatted as integers.
-                      if new_link["costs"][0]["value"].is_integer():
-                          new_link["costs"][0]["value"] = int(new_link["costs"][0]["value"])
-
-                      entry_links.append(new_link)
+                      # Put the Lion's Blade analogue immediately after the normal weapon.
+                      idx = entry_links.index(link)
+                      entry_links.insert(idx + 1, new_link)
                       stats[vigil_name] += 1
                       changed = True
 
+              # Recurse into nested imported groups too.
               for key, value in list(node.items()):
-                  if key != "entryLinks":
-                      patch(value)
+                  if isinstance(value, (dict, list)):
+                      patch(value, current_names)
 
           patch(cat)
 
@@ -230,14 +265,18 @@ jobs:
               raise SystemExit(0)
 
           cat["revision"] = int(cat.get("revision", 0)) + 1
-          path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          path.write_text(
+              json.dumps(data, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8"
+          )
 
-          print("Added/updated Lion's Blade armoury options:")
+          print("Added Lion's Blade armoury options:")
           for name, count in stats.items():
               print(f" - {name}: {count} selectable locations")
-          print(" - Ensis Spei: Sergeants, +15 pts")
+          print(" - Ensis Spei: Sergeant models, +15 pts")
           print(" - Spes Aeterna: Command models, +15 pts")
-          print(" - Vigil-pattern replacements: base weapon cost +5 pts")
+          print(" - Bolter / bolt pistol / combi-bolter: normal option +5 pts")
+          print(" - Vigil-pattern Heavy bolter: Heavy Support 5 pts; Rhino 15 pts; otherwise normal option +5 pts")
 
       - name: Commit changes
         run: |
