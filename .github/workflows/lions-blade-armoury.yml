@@ -261,11 +261,12 @@ jobs:
                   }],
               }
 
-          def wrap_required_weapons(node, current_names):
+          def wrap_direct_weapon_links(node, current_names):
               """
-              Turn mandatory bolter-family wargear into a real normal/Vigil choice.
-              This preserves the original mandatory count outside Lion's Blade while
-              exposing the Vigil-pattern replacement only to Lion's Blade.
+              Turn every direct bolter-family link into a normal/Vigil replacement choice.
+              This covers both mandatory wargear (for example Tactical Squad bolters and
+              bolt pistols) and optional direct weapon links that are not stored in one of
+              the shared weapon selection groups.
               """
               global changed
 
@@ -273,57 +274,67 @@ jobs:
               if not isinstance(entry_links, list) or is_choice_owner(node):
                   return
 
-              required = []
+              candidates = []
               for link in list(entry_links):
                   cfg = BASES.get(link.get("targetId"))
-                  minimum = required_count(link)
-                  if cfg and minimum > 0:
-                      required.append((link, cfg, minimum))
+                  if cfg:
+                      candidates.append((link, cfg, required_count(link)))
 
-              for link, cfg, minimum in required:
-                  group_id = f"lb-vigil-required-{link.get('id', 'x')}"
+              for link, cfg, minimum in candidates:
+                  group_id = f"lb-vigil-direct-{link.get('id', 'x')}"
                   groups = node.setdefault("selectionEntryGroups", [])
 
                   if any(g.get("id") == group_id for g in groups):
                       continue
 
                   maximum = required_max(link, minimum)
+                  if maximum <= 0:
+                      maximum = 1
 
                   normal_link = copy.deepcopy(link)
+                  # The group owns the selection limits; the nested normal option keeps
+                  # all other link behaviour/modifiers but not its own min/max limits.
                   normal_link["constraints"] = [
                       copy.deepcopy(c)
                       for c in link.get("constraints", [])
-                      if c.get("type") != "min"
+                      if c.get("type") not in {"min", "max"}
                   ]
 
                   vigil_link = make_vigil_link(link, cfg, current_names)
+                  vigil_link["constraints"] = [
+                      copy.deepcopy(c)
+                      for c in vigil_link.get("constraints", [])
+                      if c.get("type") not in {"min", "max"}
+                  ]
+
+                  group_constraints = [{
+                      "id": group_id + "-max",
+                      "field": "selections",
+                      "scope": "parent",
+                      "shared": True,
+                      "type": "max",
+                      "value": maximum,
+                  }]
+                  if minimum > 0:
+                      group_constraints.insert(0, {
+                          "id": group_id + "-min",
+                          "field": "selections",
+                          "scope": "parent",
+                          "shared": True,
+                          "type": "min",
+                          "value": minimum,
+                      })
 
                   group = {
                       "name": f"{link.get('name', cfg[0])} / {cfg[1]}",
                       "id": group_id,
                       "hidden": False,
                       "type": "selectionEntryGroup",
-                      "defaultSelectionEntryId": normal_link.get("id"),
-                      "constraints": [
-                          {
-                              "id": group_id + "-min",
-                              "field": "selections",
-                              "scope": "parent",
-                              "shared": True,
-                              "type": "min",
-                              "value": minimum,
-                          },
-                          {
-                              "id": group_id + "-max",
-                              "field": "selections",
-                              "scope": "parent",
-                              "shared": True,
-                              "type": "max",
-                              "value": maximum,
-                          },
-                      ],
+                      "constraints": group_constraints,
                       "entryLinks": [normal_link, vigil_link],
                   }
+                  if minimum > 0:
+                      group["defaultSelectionEntryId"] = normal_link.get("id")
 
                   entry_links.remove(link)
                   groups.append(group)
@@ -343,7 +354,7 @@ jobs:
 
               current_names = names + ([node.get("name")] if node.get("name") else [])
 
-              wrap_required_weapons(node, current_names)
+              wrap_direct_weapon_links(node, current_names)
 
               entry_links = node.get("entryLinks")
               if is_choice_owner(node):
@@ -406,7 +417,7 @@ jobs:
               print(f" - {name}: {count} selectable locations")
           print(" - Ensis Spei: Sergeant models, +15 pts")
           print(" - Spes Aeterna: Command models, +15 pts")
-          print(" - Mandatory bolter-family wargear is converted into a normal/Vigil replacement choice")
+          print(" - Every direct bolter-family link (mandatory or optional) is converted into a normal/Vigil replacement choice")
           print(" - Bolter / bolt pistol / combi-bolter: normal option +5 pts")
           print(" - Vigil-pattern Heavy bolter: Heavy Support 5 pts; Rhino 15 pts; otherwise normal option +5 pts")
 
