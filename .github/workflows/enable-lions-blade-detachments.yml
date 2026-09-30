@@ -1,0 +1,113 @@
+name: Enable Lion's Blade detachments
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '.github/workflows/enable-lions-blade-detachments.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch standard Astartes detachment visibility
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+
+          path = Path("Horus Heresy 3rd Edition.json")
+          data = json.loads(path.read_text(encoding="utf-8"))
+          gs = data["gameSystem"]
+
+          LB = "d16b-522f-e8b9-6d9b"
+          UM = "656a-07b6-d4fd-57af"
+          DA = "0a35-fce3-188c-b3aa"
+
+          def has_id(x, target):
+              if isinstance(x, list):
+                  return any(has_id(v, target) for v in x)
+              if isinstance(x, dict):
+                  if x.get("childId") == target:
+                      return True
+                  return any(has_id(v, target) for v in x.values())
+              return False
+
+          def clone_replace(obj, from_id, to_id):
+              import copy
+              c = copy.deepcopy(obj)
+              def rec(x):
+                  if isinstance(x, list):
+                      for v in x:
+                          rec(v)
+                  elif isinstance(x, dict):
+                      if x.get("childId") == from_id:
+                          x["childId"] = to_id
+                      if isinstance(x.get("comment"), str) and ("UM" in x["comment"] or "Ultramarines" in x["comment"]):
+                          x["comment"] = "Lion's Blade"
+                      for v in x.values():
+                          rec(v)
+              rec(c)
+              c.setdefault("comment", "Lion's Blade")
+              return c
+
+          changed = []
+
+          def patch_node(x, force_name):
+              if isinstance(x, list):
+                  for v in x:
+                      patch_node(v, force_name)
+                  return
+              if not isinstance(x, dict):
+                  return
+
+              if x.get("type") == "or" and isinstance(x.get("conditionGroups"), list):
+                  groups = x["conditionGroups"]
+                  has_um = any(has_id(g, UM) for g in groups)
+                  has_da = any(has_id(g, DA) for g in groups)
+                  has_lb = any(has_id(g, LB) for g in groups)
+
+                  # Standard/shared faction enumerations only.
+                  if len(groups) >= 10 and has_um and has_da and not has_lb:
+                      um_group = next(g for g in groups if has_id(g, UM))
+                      groups.append(clone_replace(um_group, UM, LB))
+                      changed.append(force_name)
+
+              for v in x.values():
+                  patch_node(v, force_name)
+
+          def walk(forces):
+              for f in forces or []:
+                  for m in f.get("modifiers", []):
+                      if m.get("field") == "hidden" and m.get("type") == "set" and m.get("value") is False:
+                          patch_node(m, f.get("name", ""))
+                  walk(f.get("forceEntries", []))
+
+          walk(gs.get("forceEntries", []))
+
+          if not changed:
+              print("No changes required.")
+              raise SystemExit(0)
+
+          gs["revision"] = int(gs.get("revision", 0)) + 1
+          path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          print("Enabled for:")
+          for name in sorted(set(changed)):
+              print(" -", name)
+
+      - name: Commit changes
+        run: |
+          if git diff --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "Horus Heresy 3rd Edition.json"
+          git commit -m "Enable standard Astartes detachments for Lion's Blade"
+          git push
