@@ -6,7 +6,7 @@
     "gameSystemId": "sys-9fe4-1dc3-b7c2-73cf",
     "gameSystemRevision": 55,
     "library": false,
-    "revision": 20,
+    "revision": 21,
     "type": "catalogue",
     "catalogueLinks": [
       {
@@ -3406,7 +3406,7 @@
               {
                 "name": "Pistol",
                 "id": "lb-locutarii-leader-pistol-group-0001",
-                "defaultSelectionEntryId": "lb-locutarii-leader-bolt-pistol-0001",
+                "defaultSelectionEntryId": "lb-locutarii-leader-vigil-0001",
                 "sortIndex": 2,
                 "constraints": [
                   {
@@ -3428,38 +3428,12 @@
                 ],
                 "entryLinks": [
                   {
-                    "name": "Bolt pistol",
-                    "id": "lb-locutarii-leader-bolt-pistol-0001",
-                    "defaultAmount": 1,
-                    "hidden": false,
-                    "import": true,
-                    "targetId": "2942-f783-d627-33c5",
-                    "type": "selectionEntry",
-                    "constraints": [
-                      {
-                        "id": "lb-locutarii-leader-bolt-pistol-max-0001",
-                        "field": "selections",
-                        "scope": "parent",
-                        "shared": true,
-                        "type": "max",
-                        "value": 1
-                      }
-                    ]
-                  },
-                  {
                     "name": "Vigil-pattern Bolt pistol",
                     "id": "lb-locutarii-leader-vigil-0001",
                     "hidden": false,
                     "import": true,
                     "targetId": "lb-vigil-pistol-0001",
                     "type": "selectionEntry",
-                    "costs": [
-                      {
-                        "name": "Point(s)",
-                        "typeId": "9893-c379-920b-8982",
-                        "value": 5
-                      }
-                    ],
                     "constraints": [
                       {
                         "id": "lb-locutarii-leader-vigil-max-0001",
@@ -3469,7 +3443,8 @@
                         "type": "max",
                         "value": 1
                       }
-                    ]
+                    ],
+                    "defaultAmount": 1
                   },
                   {
                     "name": "Legion Pistols",
