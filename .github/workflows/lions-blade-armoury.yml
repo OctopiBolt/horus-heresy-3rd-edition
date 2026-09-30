@@ -33,12 +33,12 @@ jobs:
           SERGEANT = "8045-89a4-76d4-fcef"
           COMMAND = "9871-cb62-5283-2216"
 
-          ENSIS = "lbw-ensis-spei-0001"
-          SPES = "lbw-spes-aeterna-0001"
-          VIGIL_PISTOL = "lbw-vigil-pistol-0001"
-          VIGIL_BOLTER = "lbw-vigil-bolter-0001"
-          VIGIL_HEAVY = "lbw-vigil-heavy-bolter-0001"
-          VIGIL_COMBI = "lbw-vigil-combi-bolter-0001"
+          ENSIS = "lb-ensis-spei-global-0001"
+          SPES = "lb-spes-aeterna-global-0001"
+          VIGIL_PISTOL = "lb-vigil-pistol-global-0001"
+          VIGIL_BOLTER = "lb-vigil-bolter-global-0001"
+          VIGIL_HEAVY = "lb-vigil-heavy-bolter-global-0001"
+          VIGIL_COMBI = "lb-vigil-combi-bolter-global-0001"
 
           BASES = {
               "2942-f783-d627-33c5": ("bolt pistol", "Vigil-pattern Bolt pistol", VIGIL_PISTOL),
@@ -197,7 +197,26 @@ jobs:
                           continue
 
                       base_name, vigil_name, target_id = cfg
-                      if any(x.get("targetId") == target_id for x in entry_links):
+                      existing = next(
+                          (x for x in entry_links if x.get("targetId") == target_id),
+                          None
+                      )
+                      if existing:
+                          desired = vigil_cost(cfg[0], base_cost(link), current_names)
+                          point_cost = next(
+                              (x for x in existing.get("costs", []) if x.get("typeId") == POINTS),
+                              None
+                          )
+                          if point_cost is None:
+                              existing.setdefault("costs", []).append({
+                                  "name": "Point(s)",
+                                  "typeId": POINTS,
+                                  "value": desired,
+                              })
+                              changed = True
+                          elif point_cost.get("value") != desired:
+                              point_cost["value"] = desired
+                              changed = True
                           continue
 
                       copied_max = []
