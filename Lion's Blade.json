@@ -6,7 +6,7 @@
     "gameSystemId": "sys-9fe4-1dc3-b7c2-73cf",
     "gameSystemRevision": 55,
     "library": false,
-    "revision": 8,
+    "revision": 9,
     "type": "catalogue",
     "catalogueLinks": [
       {
@@ -86,6 +86,37 @@
             "id": "lb-army-config-cat-0001",
             "primary": true,
             "targetId": "abfa-86ab-1726-077a"
+          }
+        ]
+      },
+      {
+        "name": "Praesides Spei",
+        "id": "lb-praesides-root-0001",
+        "hidden": false,
+        "import": true,
+        "targetId": "lb-praesides-unit-0001",
+        "type": "selectionEntry",
+        "categoryLinks": [
+          {
+            "name": "Elites",
+            "id": "lb-praesides-elites-cat-0001",
+            "hidden": false,
+            "primary": true,
+            "targetId": "5d5e-958f-e388-50b5"
+          },
+          {
+            "name": "Lion's Blade",
+            "id": "lb-praesides-faction-cat-0001",
+            "hidden": false,
+            "primary": false,
+            "targetId": "dfc9-c210-4820-4ca6"
+          },
+          {
+            "name": "Loyalist",
+            "id": "lb-praesides-loyalist-cat-0001",
+            "hidden": false,
+            "primary": false,
+            "targetId": "4381-ed35-c3fa-a225"
           }
         ]
       }
@@ -894,6 +925,1078 @@
                 "shared": true,
                 "type": "max",
                 "value": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Ensis Spei",
+        "id": "lb-ensis-spei-0001",
+        "hidden": false,
+        "import": true,
+        "type": "upgrade",
+        "profiles": [
+          {
+            "name": "Ensis Spei",
+            "id": "lb-ensis-spei-profile-0001",
+            "hidden": false,
+            "typeId": "1ec5-45d1-2003-2d1e",
+            "typeName": "Melee Weapon",
+            "characteristics": [
+              {
+                "name": "IM",
+                "$text": "-1",
+                "typeId": "6eec-4093-f946-1014"
+              },
+              {
+                "name": "AM",
+                "$text": "A",
+                "typeId": "03d0-6094-84f0-e27e"
+              },
+              {
+                "name": "SM",
+                "$text": "+2",
+                "typeId": "4505-de6f-d4ae-6280"
+              },
+              {
+                "name": "AP",
+                "$text": "3",
+                "typeId": "a014-126b-3b7b-27e8"
+              },
+              {
+                "name": "D",
+                "$text": "1",
+                "typeId": "6a9d-4feb-065a-33e7"
+              },
+              {
+                "name": "Special Rules",
+                "$text": "Breaching (5+), Shred (5+)",
+                "typeId": "ebe0-7b28-b40c-694e"
+              },
+              {
+                "name": "Traits",
+                "$text": "Power",
+                "typeId": "76e3-c188-bc65-3467"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Vigil-pattern Bolt pistol",
+        "id": "lb-vigil-pistol-0001",
+        "hidden": false,
+        "import": true,
+        "type": "upgrade",
+        "profiles": [
+          {
+            "name": "Vigil-pattern Bolt pistol (Execution)",
+            "id": "lb-vigil-pistol-execution-0001",
+            "hidden": false,
+            "typeId": "c5d7-5f8c-49cb-877b",
+            "typeName": "Ranged Weapon",
+            "characteristics": [
+              {
+                "name": "R",
+                "$text": "6",
+                "typeId": "cdb0-8654-6840-1037"
+              },
+              {
+                "name": "FP",
+                "$text": "1",
+                "typeId": "5037-1f27-1790-e355"
+              },
+              {
+                "name": "RS",
+                "$text": "5",
+                "typeId": "b9da-ee13-79f9-fa63"
+              },
+              {
+                "name": "AP",
+                "$text": "4",
+                "typeId": "7a23-0248-2b94-5951"
+              },
+              {
+                "name": "D",
+                "$text": "1",
+                "typeId": "88c3-1ca5-7dc1-f291"
+              },
+              {
+                "name": "Special Rules",
+                "$text": "Pistol",
+                "typeId": "5aad-137a-8ee2-63fd"
+              },
+              {
+                "name": "Traits",
+                "$text": "Assault, Bolt",
+                "typeId": "1247-79d2-6cc1-8a03"
+              }
+            ]
+          },
+          {
+            "name": "Vigil-pattern Bolt pistol (Dispersal)",
+            "id": "lb-vigil-pistol-dispersal-0001",
+            "hidden": false,
+            "typeId": "c5d7-5f8c-49cb-877b",
+            "typeName": "Ranged Weapon",
+            "characteristics": [
+              {
+                "name": "R",
+                "$text": "12",
+                "typeId": "cdb0-8654-6840-1037"
+              },
+              {
+                "name": "FP",
+                "$text": "1",
+                "typeId": "5037-1f27-1790-e355"
+              },
+              {
+                "name": "RS",
+                "$text": "1",
+                "typeId": "b9da-ee13-79f9-fa63"
+              },
+              {
+                "name": "AP",
+                "$text": "5",
+                "typeId": "7a23-0248-2b94-5951"
+              },
+              {
+                "name": "D",
+                "$text": "1",
+                "typeId": "88c3-1ca5-7dc1-f291"
+              },
+              {
+                "name": "Special Rules",
+                "$text": "Pistol",
+                "typeId": "5aad-137a-8ee2-63fd"
+              },
+              {
+                "name": "Traits",
+                "$text": "Assault, Bolt",
+                "typeId": "1247-79d2-6cc1-8a03"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Spes Aeterna",
+        "id": "lb-spes-aeterna-0001",
+        "hidden": false,
+        "import": true,
+        "type": "upgrade",
+        "profiles": [
+          {
+            "name": "Spes Aeterna",
+            "id": "lb-spes-aeterna-profile-0001",
+            "hidden": false,
+            "typeId": "1ec5-45d1-2003-2d1e",
+            "typeName": "Melee Weapon",
+            "characteristics": [
+              {
+                "name": "IM",
+                "$text": "-1",
+                "typeId": "6eec-4093-f946-1014"
+              },
+              {
+                "name": "AM",
+                "$text": "A",
+                "typeId": "03d0-6094-84f0-e27e"
+              },
+              {
+                "name": "SM",
+                "$text": "+1",
+                "typeId": "4505-de6f-d4ae-6280"
+              },
+              {
+                "name": "AP",
+                "$text": "2",
+                "typeId": "a014-126b-3b7b-27e8"
+              },
+              {
+                "name": "D",
+                "$text": "2",
+                "typeId": "6a9d-4feb-065a-33e7"
+              },
+              {
+                "name": "Special Rules",
+                "$text": "Duellist's Edge (1)",
+                "typeId": "ebe0-7b28-b40c-694e"
+              },
+              {
+                "name": "Traits",
+                "$text": "Power",
+                "typeId": "76e3-c188-bc65-3467"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Praesides Spei",
+        "id": "lb-praesides-unit-0001",
+        "hidden": false,
+        "import": true,
+        "type": "unit",
+        "costs": [
+          {
+            "name": "Point(s)",
+            "typeId": "9893-c379-920b-8982",
+            "value": 100
+          }
+        ],
+        "entryLinks": [
+          {
+            "name": "Prime Unit",
+            "id": "lb-praesides-prime-unit-0001",
+            "hidden": false,
+            "import": true,
+            "targetId": "3fa2-78b1-637f-7fb2",
+            "type": "selectionEntry",
+            "entryLinks": [
+              {
+                "name": "Prime Benefits",
+                "id": "lb-praesides-prime-benefits-0001",
+                "hidden": false,
+                "import": true,
+                "targetId": "a396-b846-c263-6767",
+                "type": "selectionEntryGroup"
+              }
+            ]
+          }
+        ],
+        "infoLinks": [
+          {
+            "name": "[Allegiance]",
+            "id": "lb-praesides-allegiance-0001",
+            "hidden": false,
+            "targetId": "bb66-f1f6-4d65-5a07",
+            "type": "profile"
+          },
+          {
+            "name": "[Legiones Astartes]",
+            "id": "lb-praesides-legiones-0001",
+            "hidden": false,
+            "targetId": "641c-ca0a-7093-4525",
+            "type": "profile"
+          },
+          {
+            "name": "Lion's Blade",
+            "id": "lb-praesides-lions-blade-trait-0001",
+            "hidden": false,
+            "targetId": "2a79-b9da-e834-4a18",
+            "type": "profile"
+          },
+          {
+            "name": "Shield",
+            "id": "lb-praesides-shield-profile-0001",
+            "hidden": false,
+            "targetId": "1af7-07d5-7558-0b64",
+            "type": "profile"
+          }
+        ],
+        "profiles": [
+          {
+            "name": "Shield Wall",
+            "id": "lb-shield-wall-reaction-0001",
+            "hidden": false,
+            "typeId": "c14c-ecfd-ea65-58c9",
+            "typeName": "Reaction",
+            "characteristics": [
+              {
+                "name": "Summary",
+                "$text": "The Praesides close ranks around their commander, denying enemy attempts to single the leader out.",
+                "typeId": "5d02-0e54-0f6a-0f0b"
+              },
+              {
+                "name": "Trigger",
+                "$text": "The Reactive Player may declare this Reaction when an enemy attack targets a Praesides Spei Unit that includes one or more joined Character Models, before any Precision Hits or other effects that allow the Attacking Player to select a specific Target Model are allocated.",
+                "typeId": "02e4-3f90-3125-f8b4"
+              },
+              {
+                "name": "Cost",
+                "$text": "The Reactive Player must spend 1 point of their Reaction Allowance.",
+                "typeId": "954a-972f-5c94-2ede"
+              },
+              {
+                "name": "Target",
+                "$text": "The Reacting Unit must be a Praesides Spei Unit that contains at least one joined Character Model and at least one Praesides Spei or Praesides Spei Praefectus Model other than that Character.",
+                "typeId": "e102-8fdd-9cd4-c0f9"
+              },
+              {
+                "name": "Process",
+                "$text": "Until the triggering attack has been completely resolved, enemy Precision Hits, Precision Wounds and any other rule that would allow the Attacking Player to choose a specific Target Model cannot be used to select a joined Character Model in this Unit. Such attacks must be allocated to another eligible Praesides Spei Model instead. This Reaction has no effect if the joined Character is the only legal Target Model, including attacks that can only be allocated to that Character because of a Challenge or another rule.",
+                "typeId": "57cf-1c68-a020-2529"
+              }
+            ]
+          }
+        ],
+        "selectionEntries": [
+          {
+            "name": "Praesides Spei Praefectus",
+            "id": "lb-praesides-sergeant-0001",
+            "defaultAmount": 1,
+            "hidden": false,
+            "import": true,
+            "sortIndex": 1,
+            "type": "model",
+            "categoryLinks": [
+              {
+                "name": "Infantry Model Type",
+                "id": "lb-praefectus-infantry-cat-0001",
+                "hidden": false,
+                "primary": false,
+                "targetId": "594d-fa82-13cb-a345"
+              },
+              {
+                "name": "Champion Model Sub-Type",
+                "id": "lb-praefectus-champion-cat-0001",
+                "hidden": false,
+                "primary": false,
+                "targetId": "5a95-e564-96b2-8dc9"
+              },
+              {
+                "name": "Sergeant Model Sub-Type",
+                "id": "lb-praefectus-sergeant-cat-0001",
+                "hidden": false,
+                "primary": false,
+                "targetId": "8045-89a4-76d4-fcef"
+              },
+              {
+                "name": "Heavy Model Sub-Type",
+                "id": "lb-praefectus-heavy-cat-0001",
+                "hidden": false,
+                "primary": false,
+                "targetId": "1e7d-9066-28d2-97a0"
+              }
+            ],
+            "constraints": [
+              {
+                "id": "lb-praefectus-min-0001",
+                "field": "selections",
+                "scope": "parent",
+                "shared": true,
+                "type": "min",
+                "value": 1
+              },
+              {
+                "id": "lb-praefectus-max-0001",
+                "field": "selections",
+                "scope": "parent",
+                "shared": true,
+                "type": "max",
+                "value": 1
+              }
+            ],
+            "costs": [
+              {
+                "name": "Point(s)",
+                "typeId": "9893-c379-920b-8982",
+                "value": 0
+              }
+            ],
+            "entryLinks": [
+              {
+                "name": "Frag grenades",
+                "id": "lb-praesides-frag-sergeant",
+                "hidden": false,
+                "import": true,
+                "targetId": "60e4-ca33-2e68-9afc",
+                "type": "selectionEntry",
+                "constraints": [
+                  {
+                    "id": "lb-praesides-frag-min-sergeant",
+                    "field": "selections",
+                    "scope": "parent",
+                    "shared": true,
+                    "type": "min",
+                    "value": 1
+                  },
+                  {
+                    "id": "lb-praesides-frag-max-sergeant",
+                    "field": "selections",
+                    "scope": "parent",
+                    "shared": true,
+                    "type": "max",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "name": "Krak grenades",
+                "id": "lb-praesides-krak-sergeant",
+                "hidden": false,
+                "import": true,
+                "targetId": "fa20-82bc-c7de-9e97",
+                "type": "selectionEntry",
+                "constraints": [
+                  {
+                    "id": "lb-praesides-krak-min-sergeant",
+                    "field": "selections",
+                    "scope": "parent",
+                    "shared": true,
+                    "type": "min",
+                    "value": 1
+                  },
+                  {
+                    "id": "lb-praesides-krak-max-sergeant",
+                    "field": "selections",
+                    "scope": "parent",
+                    "shared": true,
+                    "type": "max",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "name": "Spes Aeterna",
+                "id": "lb-praefectus-spes-link-0001",
+                "hidden": false,
+                "import": true,
+                "targetId": "lb-spes-aeterna-0001",
+                "type": "selectionEntry",
+                "constraints": [
+                  {
+                    "id": "lb-praefectus-spes-max-0001",
+                    "field": "selections",
+                    "scope": "parent",
+                    "shared": true,
+                    "type": "max",
+                    "value": 1
+                  }
+                ],
+                "costs": [
+                  {
+                    "name": "Point(s)",
+                    "typeId": "9893-c379-920b-8982",
+                    "value": 15
+                  }
+                ]
+              }
+            ],
+            "profiles": [
+              {
+                "name": "Praesides Spei Praefectus",
+                "id": "lb-praefectus-profile-0001",
+                "hidden": false,
+                "typeId": "a76f-8e23-8c3e-166d",
+                "typeName": "Profile",
+                "characteristics": [
+                  {
+                    "name": "Type",
+                    "$text": "Infantry (Champion, Sergeant, Heavy)",
+                    "typeId": "50fc-9241-d4a2-045b"
+                  },
+                  {
+                    "name": "M",
+                    "$text": "7",
+                    "typeId": "a106-a779-d272-5e93"
+                  },
+                  {
+                    "name": "WS",
+                    "$text": "5",
+                    "typeId": "253c-d694-4695-c89e"
+                  },
+                  {
+                    "name": "BS",
+                    "$text": "4",
+                    "typeId": "0cd5-b269-e3bc-028b"
+                  },
+                  {
+                    "name": "S",
+                    "$text": "4",
+                    "typeId": "498f-dce1-59fd-d8d7"
+                  },
+                  {
+                    "name": "T",
+                    "$text": "4",
+                    "typeId": "3120-8275-e537-ecd2"
+                  },
+                  {
+                    "name": "W",
+                    "$text": "2",
+                    "typeId": "f5cc-79a3-d302-cc1d"
+                  },
+                  {
+                    "name": "I",
+                    "$text": "4",
+                    "typeId": "af9d-7db8-dc95-71c1"
+                  },
+                  {
+                    "name": "A",
+                    "$text": "4",
+                    "typeId": "024e-bdb1-7982-25a0"
+                  },
+                  {
+                    "name": "LD",
+                    "$text": "9",
+                    "typeId": "02ad-ebe6-86e7-9fd6"
+                  },
+                  {
+                    "name": "CL",
+                    "$text": "9",
+                    "typeId": "9cd1-0e7c-2cd6-5f2f"
+                  },
+                  {
+                    "name": "WP",
+                    "$text": "8",
+                    "typeId": "f714-1726-37d3-44df"
+                  },
+                  {
+                    "name": "IN",
+                    "$text": "8",
+                    "typeId": "29c5-925d-5b1d-1e77"
+                  },
+                  {
+                    "name": "SAV",
+                    "$text": "2+",
+                    "typeId": "03bd-4ecb-351d-143b"
+                  },
+                  {
+                    "name": "INV",
+                    "$text": "5+",
+                    "typeId": "a951-a772-7ce0-0b64"
+                  }
+                ]
+              }
+            ],
+            "selectionEntryGroups": [
+              {
+                "name": "Pistol:",
+                "id": "lb-praefectus-pistol-group-0001",
+                "defaultSelectionEntryId": "lb-praefectus-vigil-link-0001",
+                "hidden": false,
+                "sortIndex": 1,
+                "constraints": [
+                  {
+                    "id": "lb-praefectus-pistol-min-0001",
+                    "field": "selections",
+                    "scope": "parent",
+                    "shared": true,
+                    "type": "min",
+                    "value": 1,
+                    "includeChildSelections": true
+                  },
+                  {
+                    "id": "lb-praefectus-pistol-max-0001",
+                    "field": "selections",
+                    "scope": "parent",
+                    "shared": true,
+                    "type": "max",
+                    "value": 1,
+                    "includeChildSelections": true
+                  }
+                ],
+                "entryLinks": [
+                  {
+                    "name": "Vigil-pattern Bolt pistol",
+                    "id": "lb-praefectus-vigil-link-0001",
+                    "defaultAmount": 1,
+                    "hidden": false,
+                    "import": true,
+                    "targetId": "lb-vigil-pistol-0001",
+                    "type": "selectionEntry",
+                    "constraints": [
+                      {
+                        "id": "lb-praefectus-vigil-max-0001",
+                        "field": "selections",
+                        "scope": "parent",
+                        "shared": true,
+                        "type": "max",
+                        "value": 1
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Legion Pistols",
+                    "id": "lb-praefectus-legion-pistols-0001",
+                    "flatten": true,
+                    "hidden": false,
+                    "import": true,
+                    "targetId": "4041-7fad-77cd-f9cf",
+                    "type": "selectionEntryGroup",
+                    "constraints": [
+                      {
+                        "id": "lb-praefectus-legion-pistols-max-0001",
+                        "field": "selections",
+                        "scope": "parent",
+                        "shared": true,
+                        "type": "max",
+                        "value": 1
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Melee weapon:",
+                "id": "lb-praefectus-melee-group-0001",
+                "defaultSelectionEntryId": "lb-praefectus-ensis-link-0001",
+                "hidden": false,
+                "sortIndex": 2,
+                "constraints": [
+                  {
+                    "id": "lb-praefectus-melee-min-0001",
+                    "field": "selections",
+                    "scope": "parent",
+                    "shared": true,
+                    "type": "min",
+                    "value": 1,
+                    "includeChildSelections": true
+                  },
+                  {
+                    "id": "lb-praefectus-melee-max-0001",
+                    "field": "selections",
+                    "scope": "parent",
+                    "shared": true,
+                    "type": "max",
+                    "value": 1,
+                    "includeChildSelections": true
+                  }
+                ],
+                "entryLinks": [
+                  {
+                    "name": "Ensis Spei",
+                    "id": "lb-praefectus-ensis-link-0001",
+                    "defaultAmount": 1,
+                    "hidden": false,
+                    "import": true,
+                    "targetId": "lb-ensis-spei-0001",
+                    "type": "selectionEntry",
+                    "constraints": [
+                      {
+                        "id": "lb-praefectus-ensis-max-0001",
+                        "field": "selections",
+                        "scope": "parent",
+                        "shared": true,
+                        "type": "max",
+                        "value": 1
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Legion Sergeant Melee Weapons (no chainsword)",
+                    "id": "lb-praefectus-sergeant-melee-list-0001",
+                    "flatten": true,
+                    "hidden": false,
+                    "import": true,
+                    "targetId": "c7ca-8933-a703-7301",
+                    "type": "selectionEntryGroup",
+                    "constraints": [
+                      {
+                        "id": "lb-praefectus-sergeant-melee-list-max-0001",
+                        "field": "selections",
+                        "scope": "parent",
+                        "shared": true,
+                        "type": "max",
+                        "value": 1
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Praesides Spei",
+            "id": "lb-praesides-model-0001",
+            "defaultAmount": 4,
+            "hidden": false,
+            "import": true,
+            "sortIndex": 2,
+            "type": "model",
+            "categoryLinks": [
+              {
+                "name": "Infantry Model Type",
+                "id": "lb-praesides-infantry-cat-0001",
+                "hidden": false,
+                "primary": false,
+                "targetId": "594d-fa82-13cb-a345"
+              },
+              {
+                "name": "Heavy Model Sub-Type",
+                "id": "lb-praesides-heavy-cat-0001",
+                "hidden": false,
+                "primary": false,
+                "targetId": "1e7d-9066-28d2-97a0"
+              }
+            ],
+            "constraints": [
+              {
+                "id": "lb-praesides-model-min-0001",
+                "field": "selections",
+                "scope": "parent",
+                "shared": true,
+                "type": "min",
+                "value": 4
+              },
+              {
+                "id": "lb-praesides-model-max-0001",
+                "field": "selections",
+                "scope": "parent",
+                "shared": true,
+                "type": "max",
+                "value": 9
+              }
+            ],
+            "costs": [
+              {
+                "name": "Point(s)",
+                "typeId": "9893-c379-920b-8982",
+                "value": 25
+              }
+            ],
+            "entryLinks": [
+              {
+                "name": "Frag grenades",
+                "id": "lb-praesides-frag-regular",
+                "hidden": false,
+                "import": true,
+                "targetId": "60e4-ca33-2e68-9afc",
+                "type": "selectionEntry",
+                "constraints": [
+                  {
+                    "id": "lb-praesides-frag-min-regular",
+                    "field": "selections",
+                    "scope": "parent",
+                    "shared": true,
+                    "type": "min",
+                    "value": 1
+                  },
+                  {
+                    "id": "lb-praesides-frag-max-regular",
+                    "field": "selections",
+                    "scope": "parent",
+                    "shared": true,
+                    "type": "max",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "name": "Krak grenades",
+                "id": "lb-praesides-krak-regular",
+                "hidden": false,
+                "import": true,
+                "targetId": "fa20-82bc-c7de-9e97",
+                "type": "selectionEntry",
+                "constraints": [
+                  {
+                    "id": "lb-praesides-krak-min-regular",
+                    "field": "selections",
+                    "scope": "parent",
+                    "shared": true,
+                    "type": "min",
+                    "value": 1
+                  },
+                  {
+                    "id": "lb-praesides-krak-max-regular",
+                    "field": "selections",
+                    "scope": "parent",
+                    "shared": true,
+                    "type": "max",
+                    "value": 1
+                  }
+                ]
+              }
+            ],
+            "profiles": [
+              {
+                "name": "Praesides Spei",
+                "id": "lb-praesides-profile-0001",
+                "hidden": false,
+                "typeId": "a76f-8e23-8c3e-166d",
+                "typeName": "Profile",
+                "characteristics": [
+                  {
+                    "name": "Type",
+                    "$text": "Infantry (Heavy)",
+                    "typeId": "50fc-9241-d4a2-045b"
+                  },
+                  {
+                    "name": "M",
+                    "$text": "7",
+                    "typeId": "a106-a779-d272-5e93"
+                  },
+                  {
+                    "name": "WS",
+                    "$text": "5",
+                    "typeId": "253c-d694-4695-c89e"
+                  },
+                  {
+                    "name": "BS",
+                    "$text": "4",
+                    "typeId": "0cd5-b269-e3bc-028b"
+                  },
+                  {
+                    "name": "S",
+                    "$text": "4",
+                    "typeId": "498f-dce1-59fd-d8d7"
+                  },
+                  {
+                    "name": "T",
+                    "$text": "4",
+                    "typeId": "3120-8275-e537-ecd2"
+                  },
+                  {
+                    "name": "W",
+                    "$text": "2",
+                    "typeId": "f5cc-79a3-d302-cc1d"
+                  },
+                  {
+                    "name": "I",
+                    "$text": "4",
+                    "typeId": "af9d-7db8-dc95-71c1"
+                  },
+                  {
+                    "name": "A",
+                    "$text": "3",
+                    "typeId": "024e-bdb1-7982-25a0"
+                  },
+                  {
+                    "name": "LD",
+                    "$text": "9",
+                    "typeId": "02ad-ebe6-86e7-9fd6"
+                  },
+                  {
+                    "name": "CL",
+                    "$text": "9",
+                    "typeId": "9cd1-0e7c-2cd6-5f2f"
+                  },
+                  {
+                    "name": "WP",
+                    "$text": "8",
+                    "typeId": "f714-1726-37d3-44df"
+                  },
+                  {
+                    "name": "IN",
+                    "$text": "8",
+                    "typeId": "29c5-925d-5b1d-1e77"
+                  },
+                  {
+                    "name": "SAV",
+                    "$text": "2+",
+                    "typeId": "03bd-4ecb-351d-143b"
+                  },
+                  {
+                    "name": "INV",
+                    "$text": "5+",
+                    "typeId": "a951-a772-7ce0-0b64"
+                  }
+                ]
+              }
+            ],
+            "selectionEntryGroups": [
+              {
+                "name": "Ranged weapon:",
+                "id": "lb-praesides-ranged-group-0001",
+                "defaultSelectionEntryId": "lb-praesides-bolt-pistol-link-0001",
+                "hidden": false,
+                "sortIndex": 1,
+                "constraints": [
+                  {
+                    "id": "lb-praesides-ranged-min-0001",
+                    "field": "selections",
+                    "scope": "parent",
+                    "shared": true,
+                    "type": "min",
+                    "value": 1,
+                    "includeChildSelections": true
+                  },
+                  {
+                    "id": "lb-praesides-ranged-max-0001",
+                    "field": "selections",
+                    "scope": "parent",
+                    "shared": true,
+                    "type": "max",
+                    "value": 1,
+                    "includeChildSelections": true
+                  }
+                ],
+                "entryLinks": [
+                  {
+                    "name": "Bolt pistol",
+                    "id": "lb-praesides-bolt-pistol-link-0001",
+                    "defaultAmount": 1,
+                    "hidden": false,
+                    "import": true,
+                    "targetId": "2942-f783-d627-33c5",
+                    "type": "selectionEntry",
+                    "constraints": [
+                      {
+                        "id": "lb-praesides-bolt-pistol-max-0001",
+                        "field": "selections",
+                        "scope": "parent",
+                        "shared": true,
+                        "type": "max",
+                        "value": 1
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Vigil-pattern Bolt pistol",
+                    "id": "lb-praesides-vigil-link-0001",
+                    "hidden": false,
+                    "import": true,
+                    "targetId": "lb-vigil-pistol-0001",
+                    "type": "selectionEntry",
+                    "constraints": [
+                      {
+                        "id": "lb-praesides-vigil-max-0001",
+                        "field": "selections",
+                        "scope": "parent",
+                        "shared": true,
+                        "type": "max",
+                        "value": 1
+                      }
+                    ],
+                    "costs": [
+                      {
+                        "name": "Point(s)",
+                        "typeId": "9893-c379-920b-8982",
+                        "value": 3
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Melee weapon:",
+                "id": "lb-praesides-melee-group-0001",
+                "defaultSelectionEntryId": "lb-praesides-ensis-link-0001",
+                "hidden": false,
+                "sortIndex": 2,
+                "constraints": [
+                  {
+                    "id": "lb-praesides-melee-min-0001",
+                    "field": "selections",
+                    "scope": "parent",
+                    "shared": true,
+                    "type": "min",
+                    "value": 1,
+                    "includeChildSelections": true
+                  },
+                  {
+                    "id": "lb-praesides-melee-max-0001",
+                    "field": "selections",
+                    "scope": "parent",
+                    "shared": true,
+                    "type": "max",
+                    "value": 1,
+                    "includeChildSelections": true
+                  }
+                ],
+                "entryLinks": [
+                  {
+                    "name": "Ensis Spei",
+                    "id": "lb-praesides-ensis-link-0001",
+                    "defaultAmount": 1,
+                    "hidden": false,
+                    "import": true,
+                    "targetId": "lb-ensis-spei-0001",
+                    "type": "selectionEntry",
+                    "constraints": [
+                      {
+                        "id": "lb-praesides-ensis-max-0001",
+                        "field": "selections",
+                        "scope": "parent",
+                        "shared": true,
+                        "type": "max",
+                        "value": 1
+                      }
+                    ]
+                  }
+                ],
+                "selectionEntryGroups": [
+                  {
+                    "name": "2 in 5 Models may exchange their Ensis Spei for:",
+                    "id": "lb-praesides-heavy-melee-subgroup-0001",
+                    "hidden": false,
+                    "constraints": [
+                      {
+                        "id": "lb-praesides-heavy-melee-unit-max-0001",
+                        "field": "selections",
+                        "includeChildSelections": true,
+                        "scope": "unit",
+                        "shared": true,
+                        "type": "max",
+                        "value": 0
+                      }
+                    ],
+                    "entryLinks": [
+                      {
+                        "name": "Power fist",
+                        "id": "lb-praesides-power-fist-link-0001",
+                        "hidden": false,
+                        "import": true,
+                        "targetId": "2fcc-92a6-d03a-4b55",
+                        "type": "selectionEntry",
+                        "constraints": [
+                          {
+                            "id": "lb-praesides-power-fist-max-0001",
+                            "field": "selections",
+                            "scope": "parent",
+                            "shared": true,
+                            "type": "max",
+                            "value": 1
+                          }
+                        ],
+                        "costs": [
+                          {
+                            "name": "Point(s)",
+                            "typeId": "9893-c379-920b-8982",
+                            "value": 10
+                          }
+                        ]
+                      },
+                      {
+                        "name": "Thunder hammer",
+                        "id": "lb-praesides-thunder-hammer-link-0001",
+                        "hidden": false,
+                        "import": true,
+                        "targetId": "4338-dbe9-1e94-7e6d",
+                        "type": "selectionEntry",
+                        "constraints": [
+                          {
+                            "id": "lb-praesides-thunder-hammer-max-0001",
+                            "field": "selections",
+                            "scope": "parent",
+                            "shared": true,
+                            "type": "max",
+                            "value": 1
+                          }
+                        ],
+                        "costs": [
+                          {
+                            "name": "Point(s)",
+                            "typeId": "9893-c379-920b-8982",
+                            "value": 10
+                          }
+                        ]
+                      }
+                    ],
+                    "modifiers": [
+                      {
+                        "field": "lb-praesides-heavy-melee-unit-max-0001",
+                        "type": "increment",
+                        "value": 2,
+                        "repeats": [
+                          {
+                            "childId": "model",
+                            "field": "selections",
+                            "includeChildSelections": true,
+                            "repeats": 1,
+                            "roundUp": false,
+                            "scope": "unit",
+                            "shared": true,
+                            "value": 5
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
               }
             ]
           }
