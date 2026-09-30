@@ -6,7 +6,7 @@
     "gameSystemId": "sys-9fe4-1dc3-b7c2-73cf",
     "gameSystemRevision": 55,
     "library": false,
-    "revision": 6,
+    "revision": 7,
     "type": "catalogue",
     "catalogueLinks": [
       {
@@ -70,6 +70,22 @@
             "hidden": false,
             "primary": false,
             "targetId": "dfc9-c210-4820-4ca6"
+          }
+        ]
+      },
+      {
+        "name": "Rite of War",
+        "id": "lb-rite-root-link-0001",
+        "hidden": false,
+        "import": true,
+        "targetId": "75e6-6851-2416-7c05",
+        "type": "selectionEntry",
+        "categoryLinks": [
+          {
+            "name": "Army Configuration",
+            "id": "lb-army-config-cat-0001",
+            "primary": true,
+            "targetId": "abfa-86ab-1726-077a"
           }
         ]
       }
