@@ -10,7 +10,7 @@
     "gameSystemRevision": 1,
     "hidden": false,
     "library": true,
-    "revision": 64,
+    "revision": 65,
     "type": "catalogue",
     "xmlns": "http://www.battlescribe.net/schema/catalogueSchema",
     "catalogueLinks": [
@@ -234733,7 +234733,7 @@
               {
                 "name": "Point(s)",
                 "typeId": "9893-c379-920b-8982",
-                "value": 5
+                "value": 15
               }
             ],
             "modifiers": [
